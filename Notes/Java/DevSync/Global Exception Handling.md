@@ -1,4 +1,4 @@
-Annotation [[Annotations]]
+Annotation [[Exception Handling Annotations]]
 
 GlobalExceptionHandler acts as ==Centralized Exception Translation Layer
 

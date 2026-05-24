@@ -189,75 +189,37 @@ Automatically sets the timestamp when the entity is first created.
 ### `@UpdateTimestamp`
 Automatically updates timestamp whenever entity changes.
 
-## Validation Annotations
 
-### @NotNull
-value cannot be `null`
-`@NotNull` does NOT care about content.
+
+## Jackson Annotation
+
+### @JsonInclude(JsonInclude.Include.NON_EMPTY)
+
+`@JsonInclude` is a Jackson serialization annotation.
+it controls which fields should appear in JSON response
+
+Example
 ```
-@NotNull
-private String name;
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+private List<FieldValidationError> errors;
 ```
-### @NotBlank
-Stronger validation for Strings.
-Means:
-- not null
-- not empty
-- not whitespace only
-```
-@NotBlank
-private String username;
-```
-### Difference: `@NotNull` vs `@NotBlank`
+> “Only include `errors` in JSON if it is NOT empty.”
 
-|Value|`@NotNull`|`@NotBlank`|
-|---|---|---|
-|`null`|❌|❌|
-|`""`|✅|❌|
-|`" "`|✅|❌|
-|`"abc"`|✅|✅|
+# What Counts As “Empty”
+`NON_EMPTY` excludes:
 
+| Type   | Excluded When |
+| ------ | ------------- |
+| List   | empty         |
+| String | `""`          |
+| Map    | empty         |
+| Array  | empty         |
+| null   | null          |
 
-### @RestControllerAdvice
-
-Globally intercept exceptions thrown from controllers.
-
-```
-Controller throws exception
-    ↓
-GlobalExceptionHandler intercepts
-    ↓
-Custom structured API response
-```
+#### Different methods
+`Include.ALWAYS` --> Default behavior. -> Everything serialized.
+`Include.NON_NULL` --> Excludes only null
+`Include.NON_DEFAULT` -- > Excludes fields having default values.
 
 
-### Important Internal Flow
-
-```
-HTTP Request
-    ↓
-DispatcherServlet
-    ↓
-Controller
-    ↓
-Validation / Service / Repository
-    ↓
-Exception occurs
-    ↓
-@RestControllerAdvice catches
-    ↓
-Custom ResponseEntity returned
-```
-
-
-## @ExceptionHandler
-
-```
-@ExceptionHandler(MethodArgumentNotValidException.class)
-```
-This is exception-specific routing.
-Spring internally does:
-- exception matching
-- method resolution
-- response serialization
 

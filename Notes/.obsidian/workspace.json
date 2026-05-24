@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2957bb16adc405cd",
+        "id": "802124f7d37b8c61",
         "type": "tabs",
         "children": [
           {
-            "id": "489bd19b58eada81",
+            "id": "684b5ba42c87b7dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Java/Springboot/Spring Security & JWT.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Spring Security & JWT"
             }
           }
         ]
@@ -201,7 +205,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 335.5
+    "width": 335.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -216,15 +221,18 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "4ed8be7c35f246ca",
+  "active": "684b5ba42c87b7dc",
   "lastOpenFiles": [
+    "Java/Springboot/Exception Handling Annotations.md",
+    "Java/Springboot/Spring Security & JWT.md",
+    "Java/Springboot/Validation Annotations.md",
+    "Java/Springboot/Annotations.md",
+    "Java/DevSync/Global Exception Handling.md",
+    "Non Tech/Non Tech Skill Mastery.md",
     "journal/24-05-2026.md",
     "journal/23-05-2026.md",
-    "Java/DevSync/Global Exception Handling.md",
     "Templates/Daily Note Template.md",
-    "Java/Springboot/Annotations.md",
     "Java/Springboot",
-    "Non Tech/Non Tech Skill Mastery.md",
     "Java/DevSync",
     "Daily Growth Stack (7 Months Compounding Strategy).md",
     "Non Tech",
