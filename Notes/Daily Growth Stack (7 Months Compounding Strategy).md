@@ -5,7 +5,7 @@
 - System design
 - Backend depth
 
-#### Communication (Daily) --  30 mins
+#### Communication (Daily) --  30 mins [[Non Tech Skill Mastery]]
 - Speak aloud
 - Shadow YouTube speakers
 - Explain concepts
