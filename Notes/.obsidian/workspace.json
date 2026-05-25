@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily Growth Stack.md",
+                "file": "Java/Springboot/Spring Security & JWT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Daily Growth Stack"
+              "title": "Spring Security & JWT"
             }
           }
         ]
@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3a22e693f7850bba",
@@ -221,20 +222,20 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "4ed8be7c35f246ca",
+  "active": "684b5ba42c87b7dc",
   "lastOpenFiles": [
+    "Templates/Daily Note Template.md",
     "journal/24-05-2026.md",
     "journal/23-05-2026.md",
+    "Daily Growth Stack.md",
     "Java/Springboot/Exception Handling Annotations.md",
     "Java/Springboot/Annotations.md",
     "Java/Springboot/Validation Annotations.md",
     "Java/Springboot/Spring Security & JWT.md",
     "Java/DevSync/Global Exception Handling.md",
     "Non Tech/Non Tech Skill Mastery.md",
-    "Templates/Daily Note Template.md",
     "Java/Springboot",
     "Java/DevSync",
-    "Daily Growth Stack.md",
     "Non Tech",
     "Spring boot.md",
     "Java",
