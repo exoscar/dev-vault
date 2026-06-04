@@ -189,7 +189,7 @@ Controllers/services access current user
 ### What Is Authentication Object?
 `Authentication` represents: 
 `trusted authenticated identity INSIDE application`
-```
+
 It contains:
 - principal (user) -`identity of authenticated user` like email,username and etc
 - authorities/roles - permissions/roles like  ROLE_ADMIN,ROLE_MEMBER
@@ -200,6 +200,7 @@ It contains:
     ├── authorities
     ├── authenticated
   ```
+  
 ```
 principal:
    skilledsapien@gmail.com
@@ -307,3 +308,152 @@ Hash contains:
 - salt
 - hash
 BCrypt knows how to parse it automatically.
+
+
+## UserDetails & UserDetailsService
+
+Why user details?
+Suppose our application has:
+```
+class User {
+    UUID id;
+    String email;
+    String password;
+    String firstName;
+}
+```
+
+But Spring Security internally needs standardized information like:
+```
+username
+password
+roles
+isAccountLocked
+isEnabled
+```
+Spring cannot assume:
+- your entity is named `User`
+- your login field is `email`
+- your password field name
+- your role structure
+>“I don’t care about your entity structure.  
+Just give me user information in MY expected format.”
+
+Thats why expected format is UserDetails
+
+What is UserDetails?
+A standard security-user format understood by Spring Security.
+It contains 
+```
+username
+password
+roles
+isAccountLocked
+isEnabled
+```
+
+#### UserDetailsService
+The Key responsibility of User Details Service is to load users from the DB during authentication
+
+Flow
+```
+Login Request
+      ↓
+UserDetailsService
+      ↓
+load User from DB
+      ↓
+convert to UserDetails
+      ↓
+Spring verifies password
+      ↓
+Authentication created
+      ↓
+SecurityContext populated
+```
+
+Login Flow
+1. User logins 
+```
+{
+  "email": "user@mail.com",
+  "password": "Password123!"
+}
+```
+
+2. Spring need user info like `stored password + roles.`
+	 so it calls UserDetailsService.loadUserbyUsername(email);
+
+3. We convert user into UserDetails   `User` --> `CustomUserDetails` (This is adapter step)
+4. Spring receives UserDetails
+5. Spring has:
+	- hashed password
+	- username
+	- authorities
+6. Password Verification - Spring internally does the password verification
+7.  Authentication object created and security context is populated.
+
+
+### AuthenticationManager & AuthenticationProvider
+
+#### AuthenticationManager
+Its job is to navigate the incoming authentication request to appropriate auth mechanisms.
+
+```
+receive authentication request
+        ↓
+find appropriate authentication mechanism
+        ↓
+delegate authentication
+        ↓
+return authenticated Authentication object
+```
+
+Why AuthenticationManager?
+Application may support multi auth methods like
+```
+username/password
+JWT
+OAuth2
+LDAP
+API keys
+SAML
+```
+Each auth type requires:
+- different credential parsing
+- different verification logic
+So Spring avoids giant monolithic authentication logic.
+
+`This pattern is called Strategy Pattern Architecture`
+### AuthenticationProvider
+This is where the actual verification happens
+It know how to authenticate a specific credential method
+
+Responsibilites
+```
+1. validate credentials
+2. load principal
+3. verify identity
+4. create authenticated Authentication object
+```
+
+#### 1. DaoAuthenticationProvider
+It means `database-backed authentication`
+
+```
+Request
+   ↓
+AuthenticationManager
+   ↓
+AuthenticationProvider
+   ↓
+UserDetailsService
+   ↓
+Repository
+   ↓
+Password Verification
+   ↓
+Authenticated Authentication object
+   ↓
+SecurityContext
+```

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "802124f7d37b8c61",
+        "id": "9ed13f0de3b9c01e",
         "type": "tabs",
         "children": [
           {
-            "id": "684b5ba42c87b7dc",
+            "id": "22c1318b2725dd48",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -96,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "3a22e693f7850bba",
@@ -222,18 +221,18 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "684b5ba42c87b7dc",
+  "active": "22c1318b2725dd48",
   "lastOpenFiles": [
+    "Java/Springboot/Annotations.md",
+    "Java/DevSync/Global Exception Handling.md",
+    "Daily Growth Stack.md",
+    "Non Tech/Non Tech Skill Mastery.md",
+    "Java/Springboot/Spring Security & JWT.md",
     "Templates/Daily Note Template.md",
     "journal/24-05-2026.md",
     "journal/23-05-2026.md",
-    "Daily Growth Stack.md",
     "Java/Springboot/Exception Handling Annotations.md",
-    "Java/Springboot/Annotations.md",
     "Java/Springboot/Validation Annotations.md",
-    "Java/Springboot/Spring Security & JWT.md",
-    "Java/DevSync/Global Exception Handling.md",
-    "Non Tech/Non Tech Skill Mastery.md",
     "Java/Springboot",
     "Java/DevSync",
     "Non Tech",

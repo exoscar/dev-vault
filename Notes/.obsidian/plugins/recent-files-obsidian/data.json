@@ -5,6 +5,22 @@
       "path": "Java/Springboot/Spring Security & JWT.md"
     },
     {
+      "basename": "Annotations",
+      "path": "Java/Springboot/Annotations.md"
+    },
+    {
+      "basename": "Global Exception Handling",
+      "path": "Java/DevSync/Global Exception Handling.md"
+    },
+    {
+      "basename": "Daily Growth Stack",
+      "path": "Daily Growth Stack.md"
+    },
+    {
+      "basename": "Non Tech Skill Mastery",
+      "path": "Non Tech/Non Tech Skill Mastery.md"
+    },
+    {
       "basename": "Daily Note Template",
       "path": "Templates/Daily Note Template.md"
     },
@@ -17,28 +33,12 @@
       "path": "journal/23-05-2026.md"
     },
     {
-      "basename": "Daily Growth Stack",
-      "path": "Daily Growth Stack.md"
-    },
-    {
       "basename": "Exception Handling Annotations",
       "path": "Java/Springboot/Exception Handling Annotations.md"
     },
     {
-      "basename": "Annotations",
-      "path": "Java/Springboot/Annotations.md"
-    },
-    {
       "basename": "Validation Annotations",
       "path": "Java/Springboot/Validation Annotations.md"
-    },
-    {
-      "basename": "Global Exception Handling",
-      "path": "Java/DevSync/Global Exception Handling.md"
-    },
-    {
-      "basename": "Non Tech Skill Mastery",
-      "path": "Non Tech/Non Tech Skill Mastery.md"
     },
     {
       "basename": "Weekly Notes Template",
