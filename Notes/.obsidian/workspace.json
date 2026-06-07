@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1c86a47a7043d30f",
+        "id": "9102b0fd63d56eab",
         "type": "tabs",
         "children": [
           {
-            "id": "910da55319d4e549",
+            "id": "27384e8d91aa9c97",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "journal/24-05-2026.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "24-05-2026"
+              "title": "New tab"
             }
           }
         ]
@@ -221,24 +217,25 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "910da55319d4e549",
+  "active": "4ed8be7c35f246ca",
   "lastOpenFiles": [
+    "Java/DevSync/DevSync Journey.md",
+    "Java/Springboot/Springboot Index.md",
+    "Java/Springboot/Annotations.md",
+    "Java/Springboot/Global Exception Handling.md",
+    "Java/Springboot/Status Code.md",
+    "Java/Springboot/Security Concepts.md",
+    "journal/24-05-2026.md",
     "journal/23-05-2026.md",
     "Java/Springboot/Spring Security & JWT.md",
-    "Java/Springboot/Annotations.md",
     "Java/Springboot/Exception Handling Annotations.md",
     "Java/Springboot/JWT RISKS - LOGOUT.md",
-    "Java/Springboot/Security Concepts.md",
     "Java/Springboot/Validation Annotations.md",
     "Java/DevSync/DevSync Notes.md",
-    "Java/DevSync/DevSync Journey.md",
-    "Java/DevSync/Global Exception Handling.md",
     "Java/DevSync/Untitled",
-    "Java/Springboot/Status Code.md",
     "Daily Growth Stack.md",
     "Non Tech/Non Tech Skill Mastery.md",
     "Templates/Daily Note Template.md",
-    "journal/24-05-2026.md",
     "Java/Springboot",
     "Java/DevSync",
     "Non Tech",
