@@ -514,7 +514,75 @@ Spring Container
 Injected into AuthService
 ```
 
+### @EnableWebSecurity 
+this tell spring that
+> `@EnableWebSecurity` enables Spring Security's web layer and allows configuration of request-level security through `SecurityFilterChain`.
+- Activates Spring Security for HTTP requests.
+- Allows configuration of:
+    - Authentication
+    - Authorization
+    - Login/Logout
+    - JWT filters
+    - CORS
+    - CSRF
+```
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+}
+```
 
+```
+@Bean
+SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers("/public/**").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .build();
+}
+```
+
+### @EnableMethodSecurity
+```
+@Configuration
+@EnableMethodSecurity
+public class SecurityConfig {
+}
+```
+
+> Enables **method-level security annotations**.
+Enables
+- `@PreAuthorize`
+- `@PostAuthorize`
+- `@PreFilter`
+- `@PostFilter`
+- `@Secured`
+- `@RolesAllowed`
+@PreAuthorize -> performs an authority check before the method executes
+Examples:
+```
+@PreAuthorize("isAuthenticated()")
+```
+Authenticated users only.
+```
+@PreAuthorize("hasRole('USER')")
+```
+Users with role USER.
+```
+@PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+```
+ADMIN or MANAGER.
+```
+@PreAuthorize("hasAuthority('DELETE_USER')")
+```
+Specific authority/permission.
+```
+@PreAuthorize("#id == authentication.principal.id")
+```
+
+User can access only their own resource.
 
 ## Important Points
 
@@ -870,5 +938,19 @@ the filter should be placed before the UsernamePasswordAuthenticationFilter.
 3. if token is invalid or expired --> throw an exception
 4. get sub/claims from the token
 5. get userdetails from DB
+	`CustomUserDetails userDetails = userDetailsService.loadUserById(userId);`
 6. populate the authentication container with userdetails and authorities
+	```
+	UsernamePasswordAuthenticationToken authentication =  
+        new UsernamePasswordAuthenticationToken(  
+                userDetails,  
+                null,  
+                userDetails.getAuthorities()  
+        );  
+  
+	SecurityContextHolder.getContext()  
+        .setAuthentication(authentication);
+	```
+
+7. populate the securityContextHolder
 

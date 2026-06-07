@@ -1,16 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "24-05-2026",
+      "path": "journal/24-05-2026.md"
+    },
+    {
+      "basename": "23-05-2026",
+      "path": "journal/23-05-2026.md"
+    },
+    {
       "basename": "Spring Security & JWT",
       "path": "Java/Springboot/Spring Security & JWT.md"
+    },
+    {
+      "basename": "Annotations",
+      "path": "Java/Springboot/Annotations.md"
+    },
+    {
+      "basename": "Exception Handling Annotations",
+      "path": "Java/Springboot/Exception Handling Annotations.md"
+    },
+    {
+      "basename": "JWT RISKS - LOGOUT",
+      "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
     },
     {
       "basename": "Security Concepts",
       "path": "Java/Springboot/Security Concepts.md"
     },
     {
-      "basename": "JWT RISKS - LOGOUT",
-      "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
+      "basename": "Validation Annotations",
+      "path": "Java/Springboot/Validation Annotations.md"
     },
     {
       "basename": "DevSync Notes",
@@ -21,20 +41,12 @@
       "path": "Java/DevSync/DevSync Journey.md"
     },
     {
-      "basename": "Validation Annotations",
-      "path": "Java/Springboot/Validation Annotations.md"
-    },
-    {
       "basename": "Global Exception Handling",
       "path": "Java/DevSync/Global Exception Handling.md"
     },
     {
       "basename": "Status Code",
       "path": "Java/Springboot/Status Code.md"
-    },
-    {
-      "basename": "Annotations",
-      "path": "Java/Springboot/Annotations.md"
     },
     {
       "basename": "Daily Growth Stack",
@@ -47,18 +59,6 @@
     {
       "basename": "Daily Note Template",
       "path": "Templates/Daily Note Template.md"
-    },
-    {
-      "basename": "24-05-2026",
-      "path": "journal/24-05-2026.md"
-    },
-    {
-      "basename": "23-05-2026",
-      "path": "journal/23-05-2026.md"
-    },
-    {
-      "basename": "Exception Handling Annotations",
-      "path": "Java/Springboot/Exception Handling Annotations.md"
     },
     {
       "basename": "Weekly Notes Template",
