@@ -140,12 +140,50 @@ It contains claims/data
 }
 ```
 
+Registered Claims -- Standard claims 
+```
+sub -- subject
+iss -- issuer
+iat -- issued at
+exp -- expiry
+aud -- audience
+```
 #### Signature
 `It prevents tampering`
 Generated using:
 - header
 - payload
 - secret key
+
+#### Access Token 
+short lived and sent on every request.
+
+Refresh Token 
+long lived and gets new access token without force login 
+highly protected.
+
+```Flow
+Request
+   ↓
+JWT Filter
+   ↓
+Extract Token
+   ↓
+Validate Signature
+   ↓
+Check Expiration
+   ↓
+Extract Subject
+   ↓
+Load UserDetails
+   ↓
+Create Authentication
+   ↓
+SecurityContext
+   ↓
+Controller
+```
+
 
 ### Important JWT Security concepts
 JWT payload is not encrypted
@@ -162,6 +200,205 @@ JWT signature guarantees:
 Meaning:
 - payload not modified
 - token issued by trusted server
+
+signature can be generated using HMAC
+signature = HMAC(secret key, header + payload)
+
+HMAC can be implemented using symmetric and asymmetric cryptographic ways
+1. HS256
+	1. its one of symmetric cryptographic  
+	2. We use a  shared secret key 
+	3. Both JWT generation(signing) and JWT validator uses the same key
+	4. Pros
+		1. Fast
+		2. simple
+	5. Cons
+		1. secret shared everywhere
+2. RSA (RS256)
+	1. It is asymmetric cryptographic method
+	2. here we have two keys 
+		1. public key  -- used for validation
+		2. private key -- used for generation(signing)
+	3. Pros
+		1. Safer distribution
+		2. more scalable
+	4. Cons
+		1. Complex
+
+[[JWT RISKS - LOGOUT]]
+# JWT Token Theft Defenses — Quick Notes
+
+## Core Reality
+
+JWT is a **Bearer Token**:
+
+```
+Whoever possesses the token can use it.
+```
+
+Security goal:
+
+```
+Reduce risk, not eliminate risk.
+```
+
+---
+
+## 1. Short-Lived Access Tokens
+Purpose:
+```
+Reduce attack window.
+```
+Example:
+```
+Access Token → 15-30 minutes
+```
+If stolen:
+```
+Attacker gets limited access time.
+```
+---
+## 2. Refresh Tokens
+
+Purpose:
+```
+Issue new access tokens without forcing login.
+```
+Example:
+```
+Access Token  → 15 minRefresh Token → 7 days
+```
+Benefit:
+```
+Access token stays short-lived.
+```
+---
+## 3. HTTPS Everywhere
+Purpose:
+```
+Prevent token interception in transit.
+```
+Without HTTPS:
+```
+Token can be sniffed on network.
+```
+Production Rule:
+```
+Always use HTTPS.
+```
+---
+## 4. Safe Token Storage
+Avoid:
+```
+localStorage (XSS risk)
+```
+Prefer:
+```
+HttpOnly Cookies
+```
+Benefit:
+```
+JavaScript cannot read token.
+```
+---
+## 5. Refresh Token Rotation
+Flow:
+```
+Old Refresh Token
+        ↓
+Invalidate
+        ↓
+Issue New Refresh Token
+```
+Benefit:
+```
+Detect stolen refresh tokens.
+```
+---
+
+## 6. Token Revocation
+
+Invalidate sessions when:
+
+```
+Password changed
+Account disabled
+Critical role change
+```
+
+Benefit:
+
+```
+Force re-authentication.
+```
+
+---
+
+## 7. Device / Session Tracking
+
+Store active sessions:
+
+```
+Chrome - Laptop
+Android - Mobile
+```
+
+Benefit:
+
+```
+User can revoke individual sessions.
+```
+
+---
+
+## 8. Risk-Based Security Checks
+
+Monitor:
+
+```
+IP changes
+Device changes
+Geographic anomalies
+```
+
+Example:
+
+```
+India login
+2 min later Brazil request
+```
+
+Action:
+
+```
+Require re-authentication.
+```
+
+---
+
+## Recommended DevSync Setup
+
+```
+Access Token  → 15-30 min
+Refresh Token → 7 days
+HTTPS         → Enabled in deployment
+Password Change → Revoke sessions
+```
+
+---
+
+# Security Principle
+
+```
+Assume token theft is possible.  
+Design to:  
+- minimize impact  
+- detect abuse  
+- revoke access quickly
+```
+
+This is how real-world authentication systems are designed.
+
 
 ## SecurityContext & Authentication Flow
 `SecurityContext = request-scoped security container
@@ -457,3 +694,181 @@ Authenticated Authentication object
    ↓
 SecurityContext
 ```
+
+
+## SecurityFilterChain & Request Processing
+
+SecurityFilterChain --> Ordered pipeline of security filters
+
+```
+Security is composed of MANY responsibilities:
+
+- authentication
+- authorization
+- CSRF protection
+- session handling
+- exception handling
+- logout
+- JWT validation
+  
+  Spring splits responsibilities into filters.
+```
+Spring Security internally uses:
+```
+DelegatingFilterProxy
+        ↓
+FilterChainProxy
+        ↓
+SecurityFilterChain
+        ↓
+Individual Filters
+```
+
+`Authority -> simply a granted permission`
+authority represents - atomic permission
+example
+```
+ISSUE_CREATE
+ISSUE_DELETE
+PROJECT_EDIT
+USER_INVITE
+```
+
+`Role -> collection of authorities`
+represents business grouping of permissions
+like
+```
+PROJECT_CREATE
+PROJECT_DELETE
+ISSUE_DELETE
+USER_MANAGE
+```
+
+
+
+# Why Spring Uses ROLE_ Prefix
+Convention.
+When you write:
+```
+hasRole("ADMIN")
+```
+Spring internally checks:
+```
+ROLE_ADMIN
+```
+# Example
+This:
+```
+hasRole("ADMIN")
+```
+becomes:
+```
+hasAuthority("ROLE_ADMIN")
+```
+internally.
+Huge thing to remember.
+
+
+There are 2 types of authorization styles
+
+A. URL-Based Authorization
+```
+.requestMatchers("/admin/**")
+.hasRole("ADMIN")
+```
+meaning Any /admin request requires ROLE_ADMIN
+
+B. Method-Level Authorization
+`@PreAuthorize("hasRole('ADMIN')")`
+We will use preAuthorize on service methods
+Example:
+```
+@PreAuthorize("hasRole('ADMIN')")
+public void deleteWorkspace(...)
+```
+
+
+JWT is implemented using the following dependencies
+```
+jjwt-jackson
+jjwt-impl
+jjwt-api
+```
+
+Important Methods in JWT Service
+1. generateAccessToken
+
+```
+public String generateAccessToken(UUID userId){  
+    long now = System.currentTimeMillis();  
+    return Jwts.builder()  
+            .subject(userId.toString())  
+            .issuedAt(new Date(now))  
+            .expiration(new Date(now + expirationMs))  
+            .signWith(secretKey)  
+            .compact();
+```
+2. extractClaims
+```
+public Claims extractClaims(String token){  
+    return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload();  
+}
+```
+
+3. isTokenValid
+```
+   public boolean isTokenValid(String token) {  
+    try {  
+        Jwts.parser()  
+                .verifyWith(secretKey)  
+                .build()  
+                .parseSignedClaims(token);  
+  
+        return true;  
+  
+    } catch (ExpiredJwtException ex) {  
+        log.warn("JWT token has expired: {}", ex.getMessage());  
+  
+    } catch (MalformedJwtException ex) {  
+        log.warn("Invalid JWT token format: {}", ex.getMessage());  
+  
+    } catch (SecurityException ex) {  
+        log.warn("JWT signature validation failed: {}", ex.getMessage());  
+  
+    } catch (UnsupportedJwtException ex) {  
+        log.warn("Unsupported JWT token: {}", ex.getMessage());  
+  
+    } catch (IllegalArgumentException ex) {  
+        log.warn("JWT token is null or empty");  
+  
+    } catch (WeakKeyException ex) {  
+        log.error("JWT secret key is too weak: {}", ex.getMessage());  
+  
+    } catch (Exception ex) {  
+        log.error("Unexpected error while validating JWT", ex);  
+    }  
+  
+    return false;  
+}
+```
+
+valid token and extract token can be merged and used for token validation and extracting claims
+
+once we build the [JWT service](https://github.com/exoscar/dev-sync/blob/master/src/main/java/org/devsync/spring/common/security/JwtFilter.java) class 
+
+then we have to build the [customUserDetails](https://github.com/exoscar/dev-sync/blob/master/src/main/java/org/devsync/spring/common/security/CustomUserDetails.java) and [CustomUserDetailsService](https://github.com/exoscar/dev-sync/blob/master/src/main/java/org/devsync/spring/common/security/CustomUserDetailsService.java).
+
+CustomUserDetails implements UserDetails.
+CustomUserDetailsService implement UserDetailsService.
+
+
+After implementing above both. we need to build the [JWT Filter](https://github.com/exoscar/dev-sync/blob/master/src/main/java/org/devsync/spring/common/security/JwtFilter.java).
+the filter should be placed before the UsernamePasswordAuthenticationFilter.
+
+1. Get the token from header
+2. if no token continue
+3. if token is invalid or expired --> throw an exception
+4. get sub/claims from the token
+5. get userdetails from DB
+6. populate the authentication container with userdetails and authorities
+
