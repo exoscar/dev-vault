@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9102b0fd63d56eab",
+        "id": "7cf2d96d83fd9d93",
         "type": "tabs",
         "children": [
           {
-            "id": "27384e8d91aa9c97",
+            "id": "b02c9c62d56fbbbd",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Java/Topics to Cover Java.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Topics to Cover Java"
             }
           }
         ]
@@ -217,8 +221,15 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "4ed8be7c35f246ca",
+  "active": "b02c9c62d56fbbbd",
   "lastOpenFiles": [
+    "Java/DevSync/README_Nerdy.md",
+    "Java/Topics to Cover Java.md",
+    "Java/DevSync/README.md",
+    "Java/DevSync/DevSync Checklist.md",
+    "Java/DevSync/DevSync Notes.md",
+    "Java/Springboot/Spring Security & JWT.md",
+    "Java/Springboot/JWT RISKS - LOGOUT.md",
     "Java/DevSync/DevSync Journey.md",
     "Java/Springboot/Springboot Index.md",
     "Java/Springboot/Annotations.md",
@@ -227,11 +238,8 @@
     "Java/Springboot/Security Concepts.md",
     "journal/24-05-2026.md",
     "journal/23-05-2026.md",
-    "Java/Springboot/Spring Security & JWT.md",
     "Java/Springboot/Exception Handling Annotations.md",
-    "Java/Springboot/JWT RISKS - LOGOUT.md",
     "Java/Springboot/Validation Annotations.md",
-    "Java/DevSync/DevSync Notes.md",
     "Java/DevSync/Untitled",
     "Daily Growth Stack.md",
     "Non Tech/Non Tech Skill Mastery.md",
@@ -250,7 +258,6 @@
     "Templates",
     "Keto.md",
     "New Notes.md",
-    "article.md",
     "Untitled.canvas"
   ]
 }

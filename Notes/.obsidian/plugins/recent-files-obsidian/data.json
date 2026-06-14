@@ -1,8 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "Topics to Cover Java",
+      "path": "Java/Topics to Cover Java.md"
+    },
+    {
+      "basename": "README_Nerdy",
+      "path": "Java/DevSync/README_Nerdy.md"
+    },
+    {
+      "basename": "DevSync Checklist",
+      "path": "Java/DevSync/DevSync Checklist.md"
+    },
+    {
       "basename": "DevSync Notes",
       "path": "Java/DevSync/DevSync Notes.md"
+    },
+    {
+      "basename": "Spring Security & JWT",
+      "path": "Java/Springboot/Spring Security & JWT.md"
+    },
+    {
+      "basename": "JWT RISKS - LOGOUT",
+      "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
     },
     {
       "basename": "DevSync Journey",
@@ -37,16 +57,8 @@
       "path": "journal/23-05-2026.md"
     },
     {
-      "basename": "Spring Security & JWT",
-      "path": "Java/Springboot/Spring Security & JWT.md"
-    },
-    {
       "basename": "Exception Handling Annotations",
       "path": "Java/Springboot/Exception Handling Annotations.md"
-    },
-    {
-      "basename": "JWT RISKS - LOGOUT",
-      "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
     },
     {
       "basename": "Validation Annotations",

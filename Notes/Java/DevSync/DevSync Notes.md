@@ -9,3 +9,8 @@ Workspace level roles
 2. ADMIN
 3. MEMBER
 4. VIEWER
+
+
+
+TODO:
+Enforce workspace-level authorization -- get workspace by id
