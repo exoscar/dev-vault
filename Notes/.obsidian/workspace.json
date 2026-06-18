@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Core Java/File Handling.md",
+                "file": "Java/Core Java/File Handling2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "File Handling"
+              "title": "File Handling2"
             }
           }
         ]
@@ -224,6 +224,10 @@
   },
   "active": "b02c9c62d56fbbbd",
   "lastOpenFiles": [
+    "Java/Core Java/File Handling.md",
+    "Java/Core Java/File Handling2.md",
+    "Java/Topics to Cover Java.md",
+    "Pasted image 20260615083401.png",
     "Pasted image 20260615083227.png",
     "Pasted image 20260615083110.png",
     "Pasted image 20260615083047.png",
@@ -233,8 +237,6 @@
     "Pasted image 20260615082405.png",
     "Pasted image 20260615082055.png",
     "Pasted image 20260615081946.png",
-    "Java/Topics to Cover Java.md",
-    "Java/Core Java/File Handling.md",
     "Java/Core Java",
     "Java/DevSync/README_Nerdy.md",
     "Java/DevSync/README.md",

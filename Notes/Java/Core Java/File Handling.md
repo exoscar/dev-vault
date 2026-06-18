@@ -1,4 +1,4 @@
-
+[[File Handling2]]
 ```
 File System(Operating System)
 			↓
@@ -57,3 +57,17 @@ every write/read makes a system call
 ![[Pasted image 20260615082846.png]]![[Pasted image 20260615083028.png]]
 ![[Pasted image 20260615083047.png]]
 ![[Pasted image 20260615083110.png]]![[Pasted image 20260615083227.png]]
+![[Pasted image 20260615083401.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+
