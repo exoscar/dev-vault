@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7cf2d96d83fd9d93",
+        "id": "7254a87b8324b7f3",
         "type": "tabs",
         "children": [
           {
-            "id": "b02c9c62d56fbbbd",
+            "id": "f79c1bbae45e5e80",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Core Java/File Handling2.md",
+                "file": "System Design/LLD/Observer Pattern.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "File Handling2"
+              "title": "Observer Pattern"
             }
           }
         ]
@@ -96,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "3a22e693f7850bba",
@@ -222,21 +221,28 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "b02c9c62d56fbbbd",
+  "active": "f79c1bbae45e5e80",
   "lastOpenFiles": [
-    "Java/Core Java/File Handling.md",
+    "System Design/Images/Pasted image 20260619064950.png",
+    "System Design/Images/Pasted image 20260618222809.png",
+    "System Design/LLD/Observer Pattern.md",
+    "System Design/Images",
+    "System Design/Images/Pasted image 20260618222408.png",
+    "System Design/Untitled.md",
+    "System Design/HLD",
+    "System Design/LLD",
+    "System Design",
     "Java/Core Java/File Handling2.md",
+    "Java/Core Java/File Handling.md",
+    "Images/Pasted image 20260615083401.png",
+    "Images/Pasted image 20260615083227.png",
+    "Images",
     "Java/Topics to Cover Java.md",
-    "Pasted image 20260615083401.png",
-    "Pasted image 20260615083227.png",
-    "Pasted image 20260615083110.png",
-    "Pasted image 20260615083047.png",
-    "Pasted image 20260615083028.png",
-    "Pasted image 20260615082846.png",
-    "Pasted image 20260615082614.png",
-    "Pasted image 20260615082405.png",
-    "Pasted image 20260615082055.png",
-    "Pasted image 20260615081946.png",
+    "Images/Pasted image 20260615083110.png",
+    "Images/Pasted image 20260615083047.png",
+    "Images/Pasted image 20260615083028.png",
+    "Images/Pasted image 20260615082846.png",
+    "Images/Pasted image 20260615082614.png",
     "Java/Core Java",
     "Java/DevSync/README_Nerdy.md",
     "Java/DevSync/README.md",
@@ -262,14 +268,6 @@
     "Java/DevSync",
     "Non Tech",
     "Spring boot.md",
-    "Java",
-    "Templates/Weekly Notes Template.md",
-    "Welcome.md",
-    "Untitled Kanban.md",
-    "Untitled.base",
-    "journal/Untitled",
-    "journal",
-    "Templates",
     "Untitled.canvas"
   ]
 }
