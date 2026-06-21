@@ -1,12 +1,12 @@
 
  Topics to be learned for Phase 3
- - [ ] ManyToMany Mapping
-- [ ]  Join Tables
+ - [x] ManyToMany Mapping
+- [x]  Join Tables
 - [ ]  MultipartFile
-- [ ]  Java File I/O
-- [ ]  Observer Pattern
-- [ ]  Spring Events (`ApplicationEventPublisher`)
-- [ ]  Event-driven design basics
+- [x]  Java File I/O [[File Handling2]][[File Handling]]
+- [x]  Observer Pattern [[Observer Pattern]]
+- [x]  Spring Events (`ApplicationEventPublisher`)[[Spring Events]]
+- [x]  Event-driven design basics[[Spring Events]]
 
 Spring Events
 Publisher

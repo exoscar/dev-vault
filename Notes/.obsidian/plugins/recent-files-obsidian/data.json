@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "Topics to Cover Java",
+      "path": "Java/Topics to Cover Java.md"
+    },
+    {
+      "basename": "DB Relations",
+      "path": "Java/Springboot/DB Relations.md"
+    },
+    {
+      "basename": "Questions",
+      "path": "Java/Imps/Questions.md"
+    },
+    {
+      "basename": "File Handling",
+      "path": "Java/Core Java/File Handling.md"
+    },
+    {
+      "basename": "README_Nerdy",
+      "path": "Java/DevSync/README_Nerdy.md"
+    },
+    {
+      "basename": "DevSync Notes",
+      "path": "Java/DevSync/DevSync Notes.md"
+    },
+    {
+      "basename": "DevSync Journey",
+      "path": "Java/DevSync/DevSync Journey.md"
+    },
+    {
+      "basename": "DevSync Checklist",
+      "path": "Java/DevSync/DevSync Checklist.md"
+    },
+    {
+      "basename": "Spring Events",
+      "path": "Java/Springboot/Spring Events.md"
+    },
+    {
       "basename": "Observer Pattern",
       "path": "System Design/LLD/Observer Pattern.md"
     },
@@ -17,10 +53,6 @@
       "path": "Java/Core Java/File Handling2.md"
     },
     {
-      "basename": "File Handling",
-      "path": "Java/Core Java/File Handling.md"
-    },
-    {
       "basename": "Pasted image 20260615083401",
       "path": "Images/Pasted image 20260615083401.png"
     },
@@ -29,32 +61,12 @@
       "path": "Images/Pasted image 20260615083227.png"
     },
     {
-      "basename": "Topics to Cover Java",
-      "path": "Java/Topics to Cover Java.md"
-    },
-    {
-      "basename": "README_Nerdy",
-      "path": "Java/DevSync/README_Nerdy.md"
-    },
-    {
-      "basename": "DevSync Checklist",
-      "path": "Java/DevSync/DevSync Checklist.md"
-    },
-    {
-      "basename": "DevSync Notes",
-      "path": "Java/DevSync/DevSync Notes.md"
-    },
-    {
       "basename": "Spring Security & JWT",
       "path": "Java/Springboot/Spring Security & JWT.md"
     },
     {
       "basename": "JWT RISKS - LOGOUT",
       "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
-    },
-    {
-      "basename": "DevSync Journey",
-      "path": "Java/DevSync/DevSync Journey.md"
     },
     {
       "basename": "Springboot Index",
