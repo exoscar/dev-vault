@@ -8,14 +8,21 @@
 - [x]  Spring Events (`ApplicationEventPublisher`)[[Spring Events]]
 - [x]  Event-driven design basics[[Spring Events]]
 
+- PostgreSQL Full-Text Search
+- `tsvector`
+- `ts_rank`
+- `pg_trgm`
+- `websearch_to_tsquery`
+- GIN indexes
+
 Spring Events
 Publisher
 Listener
 Event Driven Design
 ### File handling
--MultipartFile
--File Storage
--Java NIO
+- [x] MultipartFile
+- [x] File Storage
+- [x] Java NIO
 ### Professionalisation
 - OpenAPI
 - Swagger UI

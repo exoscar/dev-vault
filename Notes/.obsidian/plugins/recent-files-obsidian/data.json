@@ -1,8 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "Docker",
+      "path": "Docker/Docker.md"
+    },
+    {
+      "basename": "DevSync Checklist",
+      "path": "Java/DevSync/DevSync Checklist.md"
+    },
+    {
+      "basename": "Spring Mail",
+      "path": "Java/Springboot/Spring Mail.md"
+    },
+    {
+      "basename": "Backlog",
+      "path": "Java/DevSync/Backlog.md"
+    },
+    {
+      "basename": "DevSync_Phase4_Learning_Checklist",
+      "path": "Java/DevSync/DevSync_Phase4_Learning_Checklist.md"
+    },
+    {
       "basename": "Topics to Cover Java",
       "path": "Java/Topics to Cover Java.md"
+    },
+    {
+      "basename": "DevSync Journey",
+      "path": "Java/DevSync/DevSync Journey.md"
+    },
+    {
+      "basename": "DevSync Notes",
+      "path": "Java/DevSync/DevSync Notes.md"
+    },
+    {
+      "basename": "checklist",
+      "path": "Java/DevSync/checklist.md"
+    },
+    {
+      "basename": "SQL Part",
+      "path": "Java/DevSync/Search/SQL Part.md"
+    },
+    {
+      "basename": "File Handling2",
+      "path": "Java/Core Java/File Handling2.md"
     },
     {
       "basename": "DB Relations",
@@ -15,22 +55,6 @@
     {
       "basename": "File Handling",
       "path": "Java/Core Java/File Handling.md"
-    },
-    {
-      "basename": "README_Nerdy",
-      "path": "Java/DevSync/README_Nerdy.md"
-    },
-    {
-      "basename": "DevSync Notes",
-      "path": "Java/DevSync/DevSync Notes.md"
-    },
-    {
-      "basename": "DevSync Journey",
-      "path": "Java/DevSync/DevSync Journey.md"
-    },
-    {
-      "basename": "DevSync Checklist",
-      "path": "Java/DevSync/DevSync Checklist.md"
     },
     {
       "basename": "Spring Events",
@@ -47,10 +71,6 @@
     {
       "basename": "Pasted image 20260618222809",
       "path": "System Design/Images/Pasted image 20260618222809.png"
-    },
-    {
-      "basename": "File Handling2",
-      "path": "Java/Core Java/File Handling2.md"
     },
     {
       "basename": "Pasted image 20260615083401",

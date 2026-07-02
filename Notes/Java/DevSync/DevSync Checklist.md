@@ -117,9 +117,9 @@
 
 ## Workspace Activity Feed
 
-- [ ]  Recent Activities
-- [ ]  Pagination
-- [ ]  Activity DTO Mapping
+- [x]  Recent Activities
+- [x]  Pagination
+- [x]  Activity DTO Mapping
 
 ---
 
@@ -143,38 +143,38 @@
 
 ## Notifications
 
-- [ ]  Notification Entity
-- [ ]  Issue Assignment Notification
-- [ ]  Comment Notification
-- [ ]  Mention Notification
-- [ ]  Mark As Read
-- [ ]  Notification Feed
+- [x]  Notification Entity
+- [x]  Issue Assignment Notification
+- [x]  Comment Notification
+- [x]  Mention Notification
+- [x]  Mark As Read
+- [x]  Notification Feed
 
 ---
 
 ## Issue Watchers
 
-- [ ]  Watch Issue
-- [ ]  Unwatch Issue
-- [ ]  Watcher List
+- [x]  Watch Issue
+- [x]  Unwatch Issue
+- [x]  Watcher List
 
 ---
 
 ## Labels / Tags
 
-- [ ]  Label Entity
-- [ ]  Create Label
-- [ ]  Assign Labels To Issues
-- [ ]  Filter By Labels
+- [x]  Label Entity
+- [x]  Create Label
+- [x]  Assign Labels To Issues
+- [x]  Filter By Labels
 
 ---
 
 ## Attachments
 
-- [ ]  Upload Attachment
-- [ ]  Download Attachment
-- [ ]  Delete Attachment
-- [ ]  File Metadata
+- [x]  Upload Attachment
+- [x]  Download Attachment
+- [x]  Delete Attachment
+- [x]  File Metadata
 
 Storage options:
 
@@ -187,10 +187,10 @@ Storage options:
 
 ## Advanced Search
 
-- [ ]  Text Search
-- [ ]  Multi-field Filtering
-- [ ]  Date Filters
-- [ ]  Assignee Filters
+- [x]  Text Search
+- [x]  Multi-field Filtering
+- [x]  Date Filters
+- [x]  Assignee Filters
 - [ ]  Label Filters
 
 ---
@@ -241,7 +241,7 @@ Storage options:
 
 ## API Documentation
 
-- [ ]  OpenAPI / Swagger
+- [x]  OpenAPI / Swagger
 
 ---
 
