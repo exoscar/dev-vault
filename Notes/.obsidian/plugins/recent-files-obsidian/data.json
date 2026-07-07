@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "Daily Tracker",
+      "path": "Java/Daily Tracker.md"
+    },
+    {
+      "basename": "07-07-2026",
+      "path": "journal/07-07-2026.md"
+    },
+    {
+      "basename": "Daily Note Template",
+      "path": "Templates/Daily Note Template.md"
+    },
+    {
+      "basename": "Weekly Notes Template",
+      "path": "Templates/Weekly Notes Template.md"
+    },
+    {
+      "basename": "Flyway",
+      "path": "Java/Springboot/Flyway.md"
+    },
+    {
       "basename": "Docker",
       "path": "Docker/Docker.md"
     },
@@ -131,14 +151,6 @@
     {
       "basename": "Non Tech Skill Mastery",
       "path": "Non Tech/Non Tech Skill Mastery.md"
-    },
-    {
-      "basename": "Daily Note Template",
-      "path": "Templates/Daily Note Template.md"
-    },
-    {
-      "basename": "Weekly Notes Template",
-      "path": "Templates/Weekly Notes Template.md"
     }
   ],
   "omittedPaths": [],
