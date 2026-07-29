@@ -1,51 +1,81 @@
-# 🚀 Backend Engineering Deep-Dive Plan (1 Hour Daily)
+# 🚀 Backend Engineering Internals Mastery Roadmap
 
-> Goal: Strengthen backend fundamentals, fill knowledge gaps, and prepare for product-based company interviews.
->
-> **Duration:** 8 Weeks
+> **Goal:** Achieve interview-level mastery in Java Internals, JVM, Concurrency, Spring, Hibernate, and Transaction Management.
+> 
+> **Duration:** 10 Weeks + 2 Weeks Mastery Loop
+> 
 > **Daily Commitment:** 1 Hour
+> 
+> **Learning Formula**
+> 
+> - 20 min → Theory
+> 
+> - 20 min → Internals
+> 
+> - 20 min → Coding / Experiment
+> 
 
 ---
 
-# 📊 Progress Tracker
+# 📊 Overall Progress
 
-- [ ] Week 1 — Collections Internals
-- [ ] Week 2 — JVM & Memory
-- [ ] Week 3 — Concurrency Fundamentals
-- [ ] Week 4 — Advanced Concurrency
-- [ ] Week 5 — SQL Deep Dive
-- [ ] Week 6 — Transactions & Locking
-- [ ] Week 7 — Spring & JPA Deep Knowledge
-- [ ] Week 8 — Interview Mastery
+## Phase 1 — Java Foundations
+
+- [ ] Week 1 — Collections Deep Dive
+- [ ] Week 2 — Java Core Internals
+
+## Phase 2 — JVM Mastery
+
+- [ ] Week 3 — JVM Architecture
+- [ ] Week 4 — Class Loading & Garbage Collection
+
+## Phase 3 — Concurrency Mastery
+
+- [ ] Week 5 — Concurrency Foundations
+- [ ] Week 6 — Locks & Thread Safety
+- [ ] Week 7 — Advanced Concurrency
+
+## Phase 4 — Spring Internals
+
+- [ ] Week 8 — Spring Core Internals
+## Phase 5 — Persistence & Transactions
+
+- [ ] Week 9 — Hibernate Internals
+- [ ] Week 10 — Transaction Management
+## Mastery Loop
+
+- [ ] Week 11 — Interview Mastery
+- [ ] Week 12 — Interview Mastery
 
 ---
 
-# Week 1 — Collections Internals
+# Week 1 — Collections Deep Dive
 
 ## Day 1
 
-- [ ] HashMap Internals
-- [ ] Buckets
-- [ ] Hashing
+- [ ] HashMap Architecture
+- [ ] Bucket Structure
+- [ ] Hash Function
 - [ ] Collision Handling
 
 ## Day 2
 
-- [ ] HashMap Resizing
 - [ ] Load Factor
+- [ ] Capacity
+- [ ] Resizing
 - [ ] Rehashing
-
 ## Day 3
 
-- [ ] equals() and hashCode()
+- [ ] equals()
+- [ ] hashCode()
 - [ ] Contract Rules
 - [ ] Common Mistakes
 
 ## Day 4
 
-- [ ] LinkedHashMap
-- [ ] TreeMap
-- [ ] Comparison with HashMap
+- [ ] LinkedHashMap Internals
+- [ ] TreeMap Internals
+- [ ] Red-Black Tree Basics
 
 ## Day 5
 
@@ -54,327 +84,434 @@
 
 ## Day 6
 
-- [ ] ConcurrentHashMap Internals
-- [ ] Segment Locking History
-- [ ] Modern Java Implementation
+- [ ] ConcurrentHashMap
+- [ ] Java 7 vs Java 8 Design
+- [ ] Lock Striping
+- [ ] CAS Usage
 
-## Day 7 — Revision
+## Day 7 — Practice & Revision
 
-- [ ] Explain all collection internals without notes
-- [ ] Solve collection-related interview questions
+- [ ] Implement Custom HashMap Key
+- [ ] Simulate Hash Collisions
+- [ ] Explain HashMap Without Notes
+- [ ] Explain ConcurrentHashMap Without Notes
 
 ---
 
-# Week 2 — JVM & Memory
+# Week 2 — Java Core Internals
 
 ## Day 8
 
-- [ ] JVM Architecture
-- [ ] Heap
-- [ ] Stack
-- [ ] Metaspace
+- [ ] String Pool
+- [ ] String Immutability
 
 ## Day 9
 
-- [ ] Object Creation Process
+- [ ] Wrapper Classes
+- [ ] Autoboxing
+- [ ] Unboxing
 
 ## Day 10
 
-- [ ] Garbage Collection Basics
-- [ ] Young Generation
-- [ ] Old Generation
+- [ ] Reflection API
+- [ ] Reflection Use Cases
 
 ## Day 11
 
-- [ ] Class Loading Process
+- [ ] Generics
+- [ ] Type Erasure
 
 ## Day 12
 
-- [ ] Class Loader Hierarchy
+- [ ] Functional Interfaces
+- [ ] Lambda Expressions
 
 ## Day 13
 
-- [ ] String Pool
+- [ ] Stream Internals
+- [ ] Lazy Evaluation
 
-## Day 14 — Revision
+## Day 14 — Practice & Revision
 
-- [ ] Draw JVM Architecture from memory
-- [ ] Explain object lifecycle
+- [ ] Build Reflection Example
+- [ ] Create Custom Generic Class
+- [ ] Stream Practice Problems
+- [ ] Explain Type Erasure
 
 ---
 
-# Week 3 — Concurrency Fundamentals
+# Week 3 — JVM Architecture
 
 ## Day 15
 
-- [ ] Process vs Thread
+- [ ] JDK vs JRE vs JVM
+- [ ] JVM Overview
 
 ## Day 16
 
-- [ ] Thread Lifecycle
+- [ ] Heap Memory
+- [ ] Stack Memory
+- [ ] Metaspace
 
 ## Day 17
 
-- [ ] synchronized Keyword
+- [ ] Stack Frames
+- [ ] Method Invocation
 
 ## Day 18
 
-- [ ] volatile Keyword
-- [ ] Happens-Before Relationship
+- [ ] Object Creation Lifecycle
 
 ## Day 19
 
-- [ ] Race Conditions
+- [ ] Escape Analysis
+- [ ] TLAB
 
 ## Day 20
 
-- [ ] Deadlock
-- [ ] Livelock
-- [ ] Starvation
+- [ ] JIT Compiler
+- [ ] C1 Compiler
 
-## Day 21 — Revision
+- [ ] C2 Compiler
 
-- [ ] Explain concurrency basics without notes
-- [ ] Solve thread-related coding problems
 
+## Day 21 — Practice & Revision
+
+- [ ] Explain JVM Architecture
+- [ ] Explain Object Creation Flow
+- [ ] Draw JVM Memory Areas
+- [ ] Use `javap -c` on a Class
 ---
 
-# Week 4 — Advanced Concurrency
+# Week 4 — Class Loading & Garbage Collection
 
 ## Day 22
-
-- [ ] ReentrantLock
-
+- [ ] Class Loading Process
 ## Day 23
 
-- [ ] ReadWriteLock
-
+- [ ] Bootstrap ClassLoader
+- [ ] Platform ClassLoader
+- [ ] Application ClassLoader
 ## Day 24
 
-- [ ] Compare-And-Swap (CAS)
-
+- [ ] Young Generation
 ## Day 25
 
-- [ ] AtomicInteger
-- [ ] AtomicReference
-
+- [ ] Old Generation
 ## Day 26
 
-- [ ] ExecutorService
-
+- [ ] GC Algorithms
+- [ ] Mark & Sweep
+- [ ] Mark & Compact
 ## Day 27
 
-- [ ] ThreadPoolExecutor Internals
+- [ ] G1 Garbage Collector
+- [ ] Modern GC Overview
+## Day 28 — Practice & Revision
 
-## Day 28 — Revision
-
-- [ ] Build a simple thread pool example
-- [ ] Explain executor architecture
+- [ ] Draw Class Loading Flow
+- [ ] Explain GC Process
+- [ ] Explain Object Lifecycle
+- [ ] Explain Class Loader Hierarchy
 
 ---
 
-# Week 5 — SQL Deep Dive
+# Week 5 — Concurrency Foundations
 
 ## Day 29
 
-- [ ] B-Tree Index
-
+- [ ] Process vs Thread
 ## Day 30
 
-- [ ] Composite Index
-
+- [ ] Thread Lifecycle
 ## Day 31
 
-- [ ] Covering Index
-
+- [ ] Race Conditions
 ## Day 32
 
-- [ ] EXPLAIN ANALYZE
-
+- [ ] synchronized Internals
+- [ ] Monitor Locks
 ## Day 33
 
-- [ ] Query Planner
-
+- [ ] Java Memory Model (JMM)
 ## Day 34
 
-- [ ] Join Internals
+- [ ] Happens-Before Rules
+## Day 35 — Practice & Revision
 
-## Day 35 — Revision
-
-- [ ] Analyze query execution plans
-- [ ] Design indexes for sample queries
-
+- [ ] Race Condition Demo
+- [ ] Shared Counter Example
+- [ ] Explain JMM
+- [ ] Explain Happens-Before
 ---
 
-# Week 6 — Transactions & Locking
+# Week 6 — Locks & Thread Safety
 
 ## Day 36
 
-- [ ] ACID Properties
-
+- [ ] volatile Keyword
+- [ ] Visibility Guarantees
 ## Day 37
 
-- [ ] Isolation Levels
-
+- [ ] ReentrantLock
 ## Day 38
 
-- [ ] Dirty Reads
-
+- [ ] ReadWriteLock
 ## Day 39
 
-- [ ] Non-Repeatable Reads
-
+- [ ] Deadlock
 ## Day 40
 
-- [ ] Phantom Reads
-
+- [ ] Livelock
 ## Day 41
 
-- [ ] Optimistic Locking
+- [ ] Starvation
+## Day 42 — Practice & Revision
 
-## Day 42
-
-- [ ] Pessimistic Locking
-
-## Revision Checklist
-
-- [ ] Explain all isolation levels
-- [ ] Compare optimistic vs pessimistic locking
-
+- [ ] Deadlock Simulation
+- [ ] Lock Comparison Examples
+- [ ] Explain volatile vs synchronized
+- [ ] Explain ReentrantLock
 ---
 
-# Week 7 — Spring & JPA Deep Knowledge
+# Week 7 — Advanced Concurrency
 
 ## Day 43
 
-- [ ] Spring Bean Lifecycle
-
+- [ ] Compare-And-Swap (CAS)
 ## Day 44
 
-- [ ] Spring Proxy Mechanism
-
+- [ ] AtomicInteger
+- [ ] AtomicReference
 ## Day 45
 
-- [ ] @Transactional Internals
-
+- [ ] ExecutorService
 ## Day 46
 
-- [ ] Hibernate Persistence Context
-
+- [ ] ThreadPoolExecutor Internals
 ## Day 47
 
-- [ ] N+1 Query Problem
-
+- [ ] CompletableFuture
 ## Day 48
 
-- [ ] Fetch Join
+- [ ] Concurrent Collections
+- [ ] BlockingQueue
+- [ ] CopyOnWriteArrayList
+## Day 49 — Practice Project
 
-## Day 49
-
-- [ ] Entity States
-
-## Revision Checklist
-
-- [ ] Explain transaction flow in Spring
-- [ ] Explain persistence context lifecycle
-
----
-
-# Week 8 — Interview Mastery
-
-## Daily Structure (1 Hour)
-
-### 20 Minutes — Revision
-
-- [ ] Review notes
-- [ ] Revisit weak concepts
-
-### 20 Minutes — Verbal Explanation
-
-Pick one topic and explain it as if teaching another developer.
-
-Examples:
-
-- [ ] HashMap Internals
-- [ ] ConcurrentHashMap
-- [ ] JVM Memory Model
-- [ ] volatile vs synchronized
-- [ ] CAS
-- [ ] ThreadPoolExecutor
-- [ ] Isolation Levels
-- [ ] Hibernate Persistence Context
-
-### 20 Minutes — Coding Practice
-
-Examples:
-
-- [ ] Custom HashMap Key
 - [ ] Producer Consumer
-- [ ] Atomic Counter
-- [ ] Thread Pool Example
-- [ ] SQL Index Demo
-- [ ] Query Optimization Exercise
+- [ ] Custom Thread Pool
+- [ ] CompletableFuture Example
+- [ ] Explain Executor Architecture
 
 ---
 
-# 🎯 Expected Outcome
+# Week 8 — Spring Core Internals
 
-After completing this plan, you should be able to confidently explain:
-
-## Java
-
-- [ ] HashMap Internals
-- [ ] ConcurrentHashMap Internals
-- [ ] JVM Memory Model
-- [ ] Class Loading
-- [ ] Garbage Collection
-
-## Concurrency
-
-- [ ] volatile
-- [ ] synchronized
-- [ ] CAS
-- [ ] Atomic Classes
-- [ ] Executor Framework
-- [ ] ThreadPoolExecutor Internals
-
-## Database
-
-- [ ] Indexing Strategies
-- [ ] Query Optimization
-- [ ] Isolation Levels
-- [ ] Locking Mechanisms
-- [ ] Execution Plans
-
-## Spring & JPA
+## Day 50
 
 - [ ] Bean Lifecycle
-- [ ] Proxies
-- [ ] Transaction Internals
-- [ ] Persistence Context
-- [ ] N+1 Problem
-- [ ] Fetch Strategies
+## Day 51
+
+- [ ] Bean Scopes
+## Day 52
+
+- [ ] Dependency Injection Internals
+## Day 53
+
+- [ ] BeanFactory vs ApplicationContext
+## Day 54
+
+- [ ] AOP Fundamentals
+## Day 55
+
+- [ ] Spring Proxy Mechanism
+- [ ] JDK Dynamic Proxy
+- [ ] CGLIB Proxy
+## Day 56 — Practice & Revision
+
+- [ ] Trace Bean Creation Flow
+- [ ] Explain Proxy Creation
+- [ ] Explain Dependency Injection
+- [ ] Explain AOP Flow
 
 ---
 
-# Notes
+# Week 9 — Hibernate Internals
 
-## Strengths
+## Day 57
 
-- Spring Boot Architecture
-- REST API Design
-- Security Fundamentals
-- PostgreSQL Usage
-- Project Structure
-- Clean Architecture Practices
+- [ ] Persistence Context
+## Day 58
 
-## Areas to Strengthen
+- [ ] Entity States
+- [ ] Transient
+- [ ] Managed
+- [ ] Detached
+- [ ] Removed
+## Day 59
 
-- Java Internals
-- JVM
-- Concurrency
-- Database Internals
-- Hibernate Internals
-- Transaction Management
+- [ ] Dirty Checking
+## Day 60
 
-> Focus on depth, not speed. The objective is not to finish the roadmap quickly, but to build interview-level mastery of each topic.
+- [ ] Flush Lifecycle
+- [ ] Flush Modes
+## Day 61
+
+- [ ] N+1 Query Problem
+## Day 62
+
+- [ ] Fetch Join
+- [ ] Entity Graph
+## Day 63
+
+- [ ] First Level Cache
+- [ ] Cache Lifecycle
+## Day 64 — Practice & Revision
+
+- [ ] Observe SQL Logs
+- [ ] Demonstrate Dirty Checking
+- [ ] Demonstrate N+1 Problem
+- [ ] Explain Persistence Context
+---
+
+# Week 10 — Transaction Management
+
+## Day 65
+
+- [ ] ACID Properties
+## Day 66
+
+- [ ] Transaction Lifecycle
+## Day 67
+
+- [ ] @Transactional Internals
+## Day 68
+
+- [ ] Propagation Types
+## Day 69
+
+- [ ] Isolation Levels
+## Day 70
+
+- [ ] Optimistic Locking
+## Day 71
+
+- [ ] Pessimistic Locking
+## Day 72 — Practice & Revision
+
+- [ ] Transaction Failure Scenarios
+- [ ] Rollback Scenarios
+- [ ] Explain Propagation Types
+- [ ] Explain Isolation Levels
+---
+
+# Week 11 — Interview Mastery Loop
+
+## Daily Routine
+
+### Revision
+- [ ] Review Notes
+- [ ] Review Weak Topics
+### Teach Back
+
+- [ ] Explain One Topic Without Notes
+### Coding
+
+- [ ] Build Small Example
+- [ ] Reproduce Internal Behavior
+### Candidate Topics
+
+- [ ] HashMap
+- [ ] ConcurrentHashMap
+- [ ] JVM Memory Model
+- [ ] Garbage Collection
+- [ ] synchronized
+- [ ] volatile
+- [ ] CAS
+- [ ] ThreadPoolExecutor
+- [ ] Persistence Context
+- [ ] @Transactional
+---
+
+# Week 12 — Interview Mastery Loop
+
+## Daily Routine
+
+### Mock Interview Round
+- [ ] Explain Concepts Verbally
+### Whiteboard Round
+
+- [ ] Draw JVM
+- [ ] Draw HashMap
+- [ ] Draw Persistence Context
+- [ ] Draw ThreadPoolExecutor
+### Coding Round
+
+- [ ] Producer Consumer
+- [ ] Atomic Counter
+- [ ] CompletableFuture Example
+- [ ] Custom HashMap Key
+### Final Verification
+
+- [ ] Can Explain HashMap Internals
+- [ ] Can Explain ConcurrentHashMap Internals
+- [ ] Can Explain JVM Memory Model
+- [ ] Can Explain Garbage Collection
+- [ ] Can Explain synchronized
+- [ ] Can Explain volatile
+- [ ] Can Explain CAS
+- [ ] Can Explain Executor Framework
+- [ ] Can Explain Persistence Context
+- [ ] Can Explain Dirty Checking
+- [ ] Can Explain @Transactional Internals
+- [ ] Can Explain Propagation & Isolation
+
+
+---
+
+# 🎯 End Goal
+By the end of this roadmap, I should be able to:
+## Java
+- [ ] Explain Collections Internals
+- [ ] Explain Generics & Type Erasure
+- [ ] Explain Reflection
+- [ ] Explain Stream Internals
+## JVM
+
+- [ ] Explain Memory Areas
+- [ ] Explain Object Creation
+- [ ] Explain Class Loading
+- [ ] Explain Garbage Collection
+## Concurrency
+
+- [ ] Explain JMM
+- [ ] Explain Happens-Before
+- [ ] Explain volatile
+- [ ] Explain synchronized
+- [ ] Explain CAS
+- [ ] Explain Atomic Classes
+- [ ] Explain ThreadPoolExecutor
+- [ ] Explain CompletableFuture
+
+
+## Spring
+
+- [ ] Explain Bean Lifecycle
+- [ ] Explain Dependency Injection
+- [ ] Explain AOP
+- [ ] Explain Proxy Mechanisms
+## Hibernate
+
+- [ ] Explain Persistence Context
+- [ ] Explain Dirty Checking
+- [ ] Explain Entity States
+- [ ] Explain N+1 Problem
+- [ ] Explain Fetch Strategies
+## Transactions
+
+- [ ] Explain ACID
+- [ ] Explain @Transactional Internals
+- [ ] Explain Propagation Types
+- [ ] Explain Isolation Levels
+- [ ] Explain Locking Strategies
