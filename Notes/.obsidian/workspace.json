@@ -8,20 +8,35 @@
         "type": "tabs",
         "children": [
           {
+            "id": "b0e3b7cfed3d68fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Redis/Redis.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Redis"
+            }
+          },
+          {
             "id": "357ecbda6f3f8268",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Core Java/File Handling2.md",
+                "file": "Redis/Interview Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "File Handling2"
+              "title": "Interview Questions"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +111,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3a22e693f7850bba",
@@ -224,6 +240,10 @@
   },
   "active": "357ecbda6f3f8268",
   "lastOpenFiles": [
+    "Redis/Redis.md",
+    "Redis/Interview Questions.md",
+    "Java/Core Java/File Handling2.md",
+    "Redis",
     "Java/Core Java/File Handling.md",
     "Java/Collections/Collections.md",
     "Java/Time.md",
@@ -248,23 +268,19 @@
     "Java/DevSync/README_Nerdy.md",
     "Java/DevSync/Unconfirmed 433763.crdownload",
     "Java/DevSync/Search",
-    "Java/Core Java/File Handling2.md",
     "Java/Springboot/DB Relations.md",
     "Java/Imps/Questions.md",
     "Java/Springboot/Spring Events.md",
     "Java/Imps",
-    "System Design/LLD/Observer Pattern.md",
     "System Design/Images/Pasted image 20260619064950.png",
     "System Design/Images/Pasted image 20260618222809.png",
     "System Design/Images",
     "System Design/Images/Pasted image 20260618222408.png",
-    "System Design/Untitled.md",
     "System Design/HLD",
     "System Design/LLD",
     "System Design",
     "Images/Pasted image 20260615083401.png",
     "Images/Pasted image 20260615083227.png",
-    "Images",
     "Images/Pasted image 20260615083110.png",
     "Images/Pasted image 20260615083047.png",
     "Images/Pasted image 20260615083028.png",

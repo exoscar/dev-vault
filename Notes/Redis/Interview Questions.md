@@ -1,0 +1,8 @@
+- Why is Redis single-threaded?
+- Why doesn't Redis suffer from race conditions for ordinary commands?
+- What is an event loop?
+- What is non-blocking I/O?
+- What is a context switch?
+- Why can multiple threads reduce performance?
+- Is Redis completely single-threaded today?
+- Why does Redis avoid heavy locking?
