@@ -507,3 +507,575 @@ TCP Socket
 Spring Boot
 ```
 
+
+### The Redis Object Model
+Redis Has Keys and Values
+```
+Hash Table / Dictionary
+
+        key
+         ↓
+     "user:1"
+         ↓
+       value
+         ↓
+    Redis Object
+```
+
+Redis Supports Multiple Data Types
+```
+String
+Hash
+List
+Set
+Sorted Set
+Stream
+Bitmap
+HyperLogLog
+Geospatial
+```
+
+So Redis needs some way to represent these different kinds of values internally.
+That's where the **Redis object model** comes in.
+
+Simplified mental model
+```
+Redis Dictionary
+       │
+       ├── "user:1"
+       │       │
+       │       ▼
+       │   Redis Object
+       │       │
+       │       ▼
+       │     String
+       │       │
+       │       ▼
+       │      "John"
+       │
+       ├── "user:2"
+       │       │
+       │       ▼
+       │   Redis Object
+       │       │
+       │       ▼
+       │      Hash
+       │
+       └── "users"
+               │
+               ▼
+           Redis Object
+               │
+               ▼
+              Set
+```
+
+>The top-level dictionary maps keys to Redis values, while each value can use an appropriate internal representation.
+
+Data Structure Determines Complexity
+Different structures give you different operations.
+String -> Avg O(1)
+Hash -> Avg O(1)
+List -> Usually O(1)
+Set  -> Avg O(1)
+SortedSet
+Complexity depends on the operation and range size.
+This is why **choosing the Redis data structure is an architectural decision**.
+
+## Java Comparision
+Suppose you're implementing DevSync in Java.
+You might use:
+```
+HashMap<String, User>
+```
+for key-value lookup.
+```
+ArrayList<Notification>
+```
+for ordered items.
+```
+HashSet<UUID>
+```
+for unique members.
+```
+TreeSet<User>
+```
+for sorted data.
+Redis essentially gives you these kinds of capabilities as **server-side shared data structures**.
+That's the powerful part.
+Instead of:
+```
+Spring Boot Instance 1
+        ↓
+    Java HashMap
+```
+and:
+```
+Spring Boot Instance 2
+        ↓
+    Different HashMap
+```
+you have:
+```
+Spring Boot 1 ──┐
+                │
+Spring Boot 2 ──┼──→ Redis
+                │
+Spring Boot 3 ──┘
+```
+All instances can access the same data structure.
+
+
+### There is a important Cost
+Redis being external means every operation crosses a network boundary.
+Java:
+```
+map.get("user:1");
+```
+is happening inside your JVM.
+Redis:
+```
+Application
+   ↓
+Network
+   ↓
+Redis
+   ↓
+Network
+   ↓
+Application
+```
+So even though Redis is extremely fast, it is **not as fast as an in-process Java `HashMap`**.
+
+```
+CPU cache
+   ↓
+Java object / local memory
+   ↓
+Redis
+   ↓
+PostgreSQL
+   ↓
+Remote service
+```
+
+### Why Redis uses its own string representation
+C has strings like:
+`char *name = "John";`
+Why didn't Redis simply use ordinary C strings everywhere?
+C string terminated by '\0' so system hast ot find the end by scanning 
+getting the length can require O(n).
+Redis frequently needs to know:
+How long is this String
+
+so Redis developed
+SDS — Simple Dynamic String
+```
+┌────────────────────────────────────┐
+│ length │ capacity │ flags │ data   │
+└────────────────────────────────────┘
+```
+
+"John" 
+```
+length = 4
+capacity = ...
+data = J o h n
+```
+
+SDS also handles binary data.
+Because SDS stores the length explicitly, Redis strings can contain arbitrary binary data.
+For example:
+```
+10101010 00000000 11110001 ...
+```
+A zero byte doesn't necessarily mean:
+
+> "The string ends here."
+
+Because Redis already knows the length.
+This makes Redis strings useful for things beyond human-readable text.
+
+#### Redis String Is More Powerful Than It Sounds
+Redis String
+could represent:
+```
+text
+integer
+serialized JSON
+binary data
+counter
+token
+compressed data
+```
+Redis can treat the stored string representation as an integer for numeric operations.
+That's why the Redis String data type is extremely useful.
+
+
+
+
+```
+                 REDIS
+                   │
+       ┌───────────┴────────────┐
+       │                        │
+ Architecture              Data Model
+       │                        │
+       ▼                        ▼
+ Event Loop                Key → Value
+       │                        │
+ Non-blocking I/O        Multiple Data Types
+       │                        │
+ Single command            String
+ execution                 Hash
+       │                    List
+       │                    Set
+       │                    ZSet
+       │
+       ▼
+Fast in-memory operations
+       │
+       ▼
+Persistence
+       │
+   ┌───┴───┐
+   RDB     AOF
+```
+
+
+always distinguish your data in redis
+Pure cache --> can be rebuilt from source or truth(DB) --> redis persistence not required
+Ephemeral State --> like rate limiters --> Redis state matters temporarily but losing it isn't catastrophic. --> persistence may/may not be needed as per Business requirement
+
+Important State --> Redis contains information that affects application behavior and isn't trivially reconstructable.
+```
+Queue
+Stream
+Pending work
+```
+
+System of Record
+If you're using Redis itself as the authoritative store:
+```
+Application
+    ↓
+Redis
+    ↓
+No PostgreSQL copy
+```
+Then durability requirements become much stronger.
+At that point you need to think seriously about:
+- RDB
+- AOF
+- Replication
+- Sentinel
+- Cluster
+- Backups
+- Recovery
+
+
+## Redis Persistence
+### RDB -(Redis Database)
+How can Redis, whose working dataset lives in RAM, survive a process crash or restart?
+>Take a snapshot of the in-memory dataset and save it to disk.
+
+How can Redis take that snapshot without freezing the entire server?
+Thats where `fork()` and Copy-on-Write enter
+
+What Problem does RDB Solve?
+Without Persistence:
+```
+Redis Process
+     │
+     X
+   Crash
+     │
+     ▼
+RAM disappears
+     │
+     ▼
+Everything gone
+```
+RDB creates
+```
+Redis RAM
+    │
+    │ Snapshot
+    ▼
+dump.rdb
+```
+So after restart
+```
+Redis crashes
+     │
+     ▼
+Redis starts
+     │
+     ▼
+Load dump.rdb
+     │
+     ▼
+Reconstruct RAM
+```
+
+
+RDB is a point-in-time snapshot of the Redis dataset
+```
+RDB represents a snapshot at a particular point in time, not a continuously updated copy.
+```
+
+Why fork()?
+Now there is a problem --> assume the size of redis is around 100 GB. while copying that bulk data.. redis could experience a massive latency.
+
+Redis Uses linux kernal `fork()`
+```
+Before fork:
+
+             Redis Process
+                  │
+                  ▼
+                 RAM
+```
+After fork
+```
+                 Redis
+                   │
+          ┌────────┴────────┐
+          │                 │
+        Parent            Child
+          │                 │
+    handles requests    creates RDB
+```
+
+#### Wait -- Did Redis Copy 100GB
+This is where **Copy-on-Write (COW)** comes in.
+When `fork()` happens, the parent and child initially share the same physical memory pages.
+
+```
+Parent Redis
+     │
+     ├──────────────┐
+     │              │
+     ▼              ▼
+  Page A           Page B
+     ▲              ▲
+     │              │
+     └──────┬───────┘
+            │
+         Child
+```
+Both processes can initially reference the same physical memory.
+
+#### Copy-on-Write
+Now imagine Redis modifies:
+```
+user:1
+```
+That data lives on a memory page.
+Before modification:
+```
+Parent ──────┐
+             ▼
+          Page X
+             ▲
+             │
+Child ───────┘
+```
+Parent wants to modify Page X.
+The operating system says:
+> "This page is shared. You can't modify the shared version."
+
+So it creates a copy.
+```
+Parent ──────→ Page X'
+
+Child  ──────→ Page X
+```
+The parent modifies:
+```
+Page X'
+```
+The child continues seeing:
+```
+Page X
+```
+That's **Copy-on-Write**.
+
+The child is generating a snapshot of the old state.
+The parent continues modifying the live dataset.
+Therefore:
+```
+                fork()
+                  │
+        ┌─────────┴─────────┐
+        │                   │
+      Parent              Child
+        │                   │
+Live Redis             RDB Snapshot
+        │                   │
+Changes memory         Reads memory
+        │                   │
+        └──── COW ──────────┘
+```
+The child sees the state as it existed when the snapshot started.
+The parent continues serving requests.
+
+##### in RDB there is a big memory tradeOff
+Suppose Redis has 100GB and the snapshot is running
+
+if application modifies a large portion of the dataset
+many pages need to be copied.
+So physical memory usage can increase substantially.
+```
+Before fork:
+100 GB
+After fork:
+100 GB shared
+
+During heavy writes:
+100 GB shared
++
+30 GB copied pages
+
+≈ 130 GB
+```
+The exact overhead depends on the workload and memory-page behavior.
+This is why RDB snapshots can cause **memory pressure** during heavy write workloads.
+
+RDB utilizes more memory and higher cpu utilization
+
+#### RDB's Major advantage
+RDB files are compact and efficient for backups.
+```
+RAM Dataset
+     │
+     ▼
+  Snapshot
+     │
+     ▼
+  RDB file
+```
+This makes RDB useful for:
+- Backups
+- Disaster recovery
+- Faster dataset transfer
+- Replica initialization
+- Periodic persistence
+
+#### RDB's Major Disadvantage
+if snapshots happen every 5 minutes.
+Exmple
+```
+10:00 ───── RDB
+10:01 ───── Write
+10:02 ───── Write
+10:03 ───── Write
+10:04 ───── Write
+10:05 ───── RDB
+```
+if redis crash at `10:04:58`
+the lastest snapshot may be from 10:00. all data after 10:00 is lost
+
+>RDB gives you point-in-time snapshots, not every individual write.
+
+#### RDB vs PostgreSQL WAL
+postgres commonly uses
+
+```
+Transaction
+    │
+    ▼
+WAL
+    │
+    ▼
+Durable storage
+```
+
+Redis RDB::
+```
+Current Dataset
+      │
+      ▼
+Snapshot
+      │
+      ▼
+RDB file
+```
+
+Very different model.
+PostgreSQL is designed around durable transactional storage.
+Redis is designed around an in-memory dataset with optional persistence.
+
+
+
+"At what point does Redis consider a write safe, and how much data can I lose if the process or machine fails?"
+
+
+### Append On File
+
+
+Three AOF Policies
+1. appendfsync always
+```
+Write
+ ↓
+AOF
+ ↓
+fsync
+ ↓
+Return
+```
+The system waits for the sync operation.
+Tradeoff:
+```
+Durability ↑
+Latency ↑
+Throughput ↓
+```
+2. appendfsync everysec
+```
+Write
+ ↓
+AOF
+ ↓
+Return
+
+      ...
+
+~1 second
+
+      ↓
+
+fsync
+```
+Tradeoff:
+Potentially around one second of recent writes can be lost during a catastrophic failure.
+```
+Durability
+    ↑
+Performance
+    ↑↑
+```
+
+3. appendfsync no
+```
+Redis leaves synchronization largely to the operating system.
+
+Write
+ ↓
+AOF
+ ↓
+OS decides when to flush
+```
+Redis has less control over persistence timing
+Tradeoff
+```
+Performance ↑
+Durability predictability ↓
+```
+
+|Policy|Durability|Performance|Risk|
+|---|---|---|---|
+|`always`|Highest|Lowest|Lowest write-loss window|
+|`everysec`|High|High|Roughly ~1 sec potential loss|
+|`no`|Lowest/predictability|Highest|OS-controlled delay|
