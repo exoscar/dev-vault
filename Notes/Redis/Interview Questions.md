@@ -1,3 +1,4 @@
+Main notes -- [[Redis]]
 - Why is Redis single-threaded?
 - Why doesn't Redis suffer from race conditions for ordinary commands?
 - What is an event loop?
@@ -67,4 +68,9 @@ Because writes to memory pages shared with the snapshot child can trigger Copy-o
 Writes occurring after the most recent snapshot can be lost if Redis crashes before another snapshot is created.
 ```
 
+
+11. Give me one situation where you **wouldn't** want to blindly combine everything into one huge `MGET`.
+```
+Batching reduces round trips, but excessively large batches can create payload, latency, and memory problems.
+```
 

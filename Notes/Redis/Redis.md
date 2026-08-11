@@ -1,3 +1,4 @@
+
 Redis -> in-memory data structure server
 Redis supports rich data structures, atomic operations, pub/sub, streams, scripting, replication, and clustering
 
@@ -1079,3 +1080,438 @@ Durability predictability ↓
 |`always`|Highest|Lowest|Lowest write-loss window|
 |`everysec`|High|High|Roughly ~1 sec potential loss|
 |`no`|Lowest/predictability|Highest|OS-controlled delay|
+
+
+## Operations
+SET flow 
+```
+SET user:123:name Alice
+        │
+        ▼
+Parse command
+        │
+        ├── operation = SET
+        ├── key = user:123:name
+        └── value = Alice
+        │
+        ▼
+Hash key
+        │
+        ▼
+Redis dictionary
+        │
+        ▼
+Find existing entry?
+      /       \
+    yes        no
+     │          │
+   update     create
+     │          │
+     └────┬─────┘
+          ▼
+      Redis object
+          │
+          ▼
+   internal representation
+```
+
+O(1) refers primarily to the average key lookup, not to the total amount of work involved in retrieving/transmitting an arbitrarily large value.
+
+### `SET` and `GET`
+
+`SET user:123:name Alice` 
+`GET user:123:name`
+
+when we want multiple keys at a time then. 
+
+`MGET user:123:name user:123:email user:123:status`
+```
+Java
+  │
+  │ one request
+  ▼
+Redis
+  │
+  ├── lookup key 1
+  ├── lookup key 2
+  └── lookup key 3
+  │
+  ▼
+one response
+  │
+  ▼
+Java
+```
+
+```
+MGET N keys
+    ↓
+N key lookups
+    ↓
+O(N)
+```
+
+Dont use MGET everywhere. check the below line
+"What is the right amount of data to retrieve in one operation for this workload?"
+
+```
+SET verification:123 849201 EX 300
+```
+key   = verification:123
+value = 849201
+TTL   = 300 seconds
+
+Redis Strings become much more useful when combined with Redis's other capabilities, rather than viewed as isolated commands.
+
+### INCR / DECR
+it will create the key if it doesnt exist and initialize it with zero then then
+increment/DECR by one 
+```
+INCR page_views
+DECR counter
+```
+conceptually
+```
+Client A
+   │
+   ▼
+INCR
+   │
+   ▼
+Redis
+   │
+   ├── read current value
+   ├── increment
+   └── store new value
+```
+
+### INCRBY/DECRBY
+increment by n
+```
+INCRBY inventory:123 50
+DECRBY counter 10
+```
+
+
+### Counters + Integer Semantics
+```
+SET counter 100
+```
+
+even though 100 looks like an integer, at the Redis data-model level this is still a **String**.
+
+then INCR counter tells redis that
+>Interpret the current String value as an integer, increment it, and store the result.
+
+```
+"100"
+  │
+  │ INCR
+  ▼
+"101"
+```
+
+```
+Redis data type
+      ↓
+String
+
+Operation semantics
+      ↓
+numeric increment
+```
+That is why Redis doesn't need a separate user-facing `Integer` data type just to support counters.
+
+#### What if the value isn't numeric?
+Suppose:
+```
+SET counter hello
+```
+Then:
+```
+INCR counter
+```
+cannot interpret `"hello"` as a valid integer, so Redis returns an error.
+This gives you another important design rule:
+> **The operation you choose must be compatible with the representation of the value you're storing.**
+
+
+
+Count API requests made by each workspace during a time window, then automatically remove the counter.
+
+INCR workspace:123:requests:06:52
+EXPIRE workspace:123:requests:06:52 60
+```
+workspace:123:requests:06:52
+        │
+        ├── value → 847
+        │
+        └── TTL   → 60 seconds
+```
+
+
+#### `SETNX`
+`SETNX` lets Redis perform "check whether key exists + create if absent" as one atomic operation.
+```
+SETNX payment:request:abc123 processed
+```
+
+This makes conditional writes useful for things like:
+- idempotency markers
+- "initialize once" state
+- basic locking patterns
+- duplicate-event protection
+
+To set multi keys
+#### MSETNX
+
+
+Redis lock patterns generally involve **conditional setting + expiration + ownership validation**, rather than blindly using `SETNX`.
+
+Modern `SET` is even more useful
+```
+SET payment:request:abc123 processed NX EX 300
+
+NX -- if key abset set
+XX -- only if key present update
+```
+Conceptually
+```
+SET value
+  +
+NX → only if key doesn't exist
+  +
+EX 300 → expire after 300 seconds
+```
+This is particularly useful because you can combine the conditional write and expiration into one command.
+
+
+#### The String decision
+Consider a DevSync issue:
+```
+Issue #123
+
+title      = "Fix login bug"
+status     = "OPEN"
+priority   = "HIGH"
+assignee   = "alice"
+```
+
+#### Option A - JSON String
+```
+issue:123
+    │
+    ▼
+{
+  "title": "Fix login bug",
+  "status": "OPEN",
+  "priority": "HIGH",
+  "assignee": "alice"
+}
+```
+your application does:
+```
+GET issue:123
+      ↓
+deserialize JSON
+      ↓
+Java object
+```
+if status changes
+```
+GET
+ ↓
+deserialize
+ ↓
+change status
+ ↓
+serialize
+ ↓
+SET
+```
+
+#### Option B — Hash
+```
+issue:123
+    │
+    ├── title    → Fix login bug
+    ├── status   → OPEN
+    ├── priority → HIGH
+    └── assignee → alice
+```
+Now you can do:
+```
+HGET issue:123 status
+```
+or:
+```
+HSET issue:123 status DONE
+```
+without retrieving and rewriting the entire object.
+
+
+Don't directly conclude "Hash is better"
+
+if application mostly or all the time need the entire object then a serialzied String can be perfectly reasonable
+```
+Redis
+ ↓
+one value
+ ↓
+deserialize
+```
+But if your application frequently needs:
+```
+just status
+just priority
+increment commentCount
+change assignee
+```
+a Hash becomes more attractive
+
+So the decision should be driven by **access patterns**, not by the statement:
+> "Hashes are structured, therefore they're better."
+
+## The four questions to ask yourself 
+When deciding between a String and Hash, ask:
+1. Do I usually read the whole object?
+```
+Yes → String becomes attractive
+No  → Hash becomes attractive
+```
+ 2. Do I frequently update individual fields?
+```
+Yes → Hash becomes attractive
+No  → String remains reasonable
+```
+ 3. Do I need application-level serialization?
+String:
+```
+Java object
+ ↓
+JSON
+ ↓
+Redis
+```
+Hash:
+```
+field → value
+```
+So Hash can reduce some serialization/deserialization work for field-level access.
+
+ 4. What are my memory/access-pattern requirements?
+Neither representation automatically wins.
+You need to consider:
+```
+number of objects
+number of fields
+field sizes
+read/write patterns
+network payload
+serialization cost
+memory overhead
+```
+This is exactly where Redis data modeling becomes engineering rather than command memorization.
+
+```
+Redis String
+    ↓
+redisObject / internal representation
+    ↓
+SET / GET
+    ↓
+MGET / MSET
+    ↓
+INCR / DECR
+    ↓
+atomic counters
+    ↓
+TTL
+    ↓
+SETNX / NX
+    ↓
+conditional writes
+    ↓
+String vs Hash
+```
+
+### TYPE key
+returns the type
+
+### DEL key
+returns int --> 0 no key found 1 - 1 key deleted
+
+### TTL key
+get the ttl
+
+|   TTL | Meaning                                     |
+| ----: | ------------------------------------------- |
+| `> 0` | Key exists and expires in that many seconds |
+|  `-1` | Key exists but has **no expiration**        |
+|  `-2` | Key **doesn't exist**                       |
+
+### GETSET key value
+it will return the existing value and set the value
+
+
+### APPEND
+it will append the text to existing key. it adds to exising value it doesnt modify it
+preserves TTL 
+for non existing key - it create a key and set the value
+```
+SET msg "Hello"  --> OK
+
+APPEND msg " World" --> length of new string
+
+GET msg --> "Hello World"
+
+STRLEN msg --> length of message
+```
+
+### GETRANGE key start end
+returns the substring  -- both start and end inclusive
+```
+SET text "Hello Redis"
+
+GETRANGE text 0 4  -- 'Hello'
+
+GETRANGE text 6 10 --> 'REDIS'
+
+GETRANGE text 0 -1  --> 'Hello REDIS' --> neg indexing
+```
+
+
+#### SETRANGE
+`SETRANGE` modifies the String starting at the specified offset; it doesn't replace the entire value.
+```
+SET text "Hello World"   -- ok
+SETRANGE text 6 "Redis"  -- 11
+GET text  -- "hello redis"
+STRLEN text  -- "11"
+
+x → "abc"
+SETRANGE x 5 "Z"
+Redis needs to reach offset `5`, so it creates the missing space with **zero bytes (`\0`)**.
+
+a b c \0 \0 Z
+0 1 2  3  4 5
+
+STRLEN x -- 6
+GET X -- abc\0\0Z
+
+```
+
+if offset is within the string then it will update and appedn the extras char.
+if offset is outside the string range -- then i will fill with zero bytes until the offset then it will add the value
+
+```
+offset < current length
+    → overwrite existing bytes
+
+offset > current length
+    → extend String
+    → missing bytes become zero bytes
+```
+
+### GETDEL
+it will get the value and delete the value from the memory

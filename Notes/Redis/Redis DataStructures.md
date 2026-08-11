@@ -1,3 +1,4 @@
+[[Redis]]
 What is a Redis String?
 ```
 Redis Key
