@@ -1,20 +1,48 @@
 {
   "recentFiles": [
     {
-      "basename": "Redis Strings — Hands-on Cheat Sheet",
-      "path": "Redis/Redis cheatsheet/Redis Strings — Hands-on Cheat Sheet.md"
+      "basename": "Spring Redis",
+      "path": "Redis/Redis cheatsheet/Spring Redis.md"
+    },
+    {
+      "basename": "Redis_Phase_4_Caching_Notes",
+      "path": "Redis/Redis cheatsheet/Redis_Phase_4_Caching_Notes.md"
+    },
+    {
+      "basename": "Phase 3 - Atomicity, Transactions & Concurrency",
+      "path": "Redis/Redis cheatsheet/Phase 3 - Atomicity, Transactions & Concurrency.md"
     },
     {
       "basename": "Redis",
       "path": "Redis/Redis.md"
     },
     {
-      "basename": "Redis DataStructures",
-      "path": "Redis/Redis DataStructures.md"
+      "basename": "REDIS SET",
+      "path": "Redis/Redis cheatsheet/REDIS SET.md"
+    },
+    {
+      "basename": "REDIS Phase 2",
+      "path": "Redis/Redis cheatsheet/REDIS Phase 2.md"
+    },
+    {
+      "basename": "REDIS LIST",
+      "path": "Redis/Redis cheatsheet/REDIS LIST.md"
+    },
+    {
+      "basename": "Redis Hashes — CLI Cheat Sheet",
+      "path": "Redis/Redis cheatsheet/Redis Hashes — CLI Cheat Sheet.md"
+    },
+    {
+      "basename": "Redis Strings — Hands-on Cheat Sheet",
+      "path": "Redis/Redis cheatsheet/Redis Strings — Hands-on Cheat Sheet.md"
     },
     {
       "basename": "Interview Questions",
       "path": "Redis/Interview Questions.md"
+    },
+    {
+      "basename": "Redis DataStructures",
+      "path": "Redis/Redis DataStructures.md"
     },
     {
       "basename": "Untitled",
@@ -171,18 +199,6 @@
     {
       "basename": "Exception Handling Annotations",
       "path": "Java/Springboot/Exception Handling Annotations.md"
-    },
-    {
-      "basename": "Validation Annotations",
-      "path": "Java/Springboot/Validation Annotations.md"
-    },
-    {
-      "basename": "Daily Growth Stack",
-      "path": "Daily Growth Stack.md"
-    },
-    {
-      "basename": "Non Tech Skill Mastery",
-      "path": "Non Tech/Non Tech Skill Mastery.md"
     }
   ],
   "omittedPaths": [],
