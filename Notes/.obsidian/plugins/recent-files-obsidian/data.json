@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "Kafka",
+      "path": "Kafka/Kafka.md"
+    },
+    {
+      "basename": "Kafka producers ills",
+      "path": "Kafka/imgs/Kafka producers ills.png"
+    },
+    {
+      "basename": "kafka key hasking",
+      "path": "Kafka/imgs/kafka key hasking.png"
+    },
+    {
+      "basename": "durability",
+      "path": "Kafka/imgs/durability.png"
+    },
+    {
+      "basename": "brokers and topics",
+      "path": "Kafka/imgs/brokers and topics.png"
+    },
+    {
+      "basename": "kafka_message_anatomy",
+      "path": "Kafka/imgs/kafka_message_anatomy.png"
+    },
+    {
       "basename": "Spring Redis",
       "path": "Redis/Redis cheatsheet/Spring Redis.md"
     },
@@ -43,10 +67,6 @@
     {
       "basename": "Redis DataStructures",
       "path": "Redis/Redis DataStructures.md"
-    },
-    {
-      "basename": "Untitled",
-      "path": "Untitled.md"
     },
     {
       "basename": "File Handling2",
@@ -175,30 +195,6 @@
     {
       "basename": "Annotations",
       "path": "Java/Springboot/Annotations.md"
-    },
-    {
-      "basename": "Global Exception Handling",
-      "path": "Java/Springboot/Global Exception Handling.md"
-    },
-    {
-      "basename": "Status Code",
-      "path": "Java/Springboot/Status Code.md"
-    },
-    {
-      "basename": "Security Concepts",
-      "path": "Java/Springboot/Security Concepts.md"
-    },
-    {
-      "basename": "24-05-2026",
-      "path": "journal/24-05-2026.md"
-    },
-    {
-      "basename": "23-05-2026",
-      "path": "journal/23-05-2026.md"
-    },
-    {
-      "basename": "Exception Handling Annotations",
-      "path": "Java/Springboot/Exception Handling Annotations.md"
     }
   ],
   "omittedPaths": [],
