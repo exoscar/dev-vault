@@ -140,14 +140,14 @@ partitions are distributed across all brokers
 - each brokers knows about all brokers, topics and partitions (metadata)
 
 ### Topic replication factor
-- topics should habe areplication factor >1 (usually between 2 and 3)
+- topics should have a replication factor >1 (usually between 2 and 3)
 - This way if a broker is down, another broker can serve the data 
 
 #### Concept of Leader for a partition
-- At anytime only one broker ca be a leaders for a given partition
+- At anytime only one broker can be a leaders for a given partition
 - producers can only send data to the broker that is leader of a partition
 - the other brokers will replicate the data
-- therefore, each partition has one leader and multiple IST (in-sync replica)
+- therefore, each partition has one leader and multiple ISR (in-sync replica)
 - ![[Leaders.png]]
 #### Default producers & consumer behaviour with leaders
 - Kafka producers can only write to the leader broker for a partition

@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "DevSync_Kafka_Notes",
+      "path": "Kafka/DevSync_Kafka_Notes.md"
+    },
+    {
+      "basename": "DevSync_Kafka_Notes_Continuation_FULL",
+      "path": "Kafka/DevSync_Kafka_Notes_Continuation_FULL.md"
+    },
+    {
       "basename": "Kafka",
       "path": "Kafka/Kafka.md"
+    },
+    {
+      "basename": "Outbox Pattern - Kafka",
+      "path": "Kafka/Outbox Pattern - Kafka.md"
     },
     {
       "basename": "Kafka producers ills",
@@ -187,14 +199,6 @@
     {
       "basename": "JWT RISKS - LOGOUT",
       "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
-    },
-    {
-      "basename": "Springboot Index",
-      "path": "Java/Springboot/Springboot Index.md"
-    },
-    {
-      "basename": "Annotations",
-      "path": "Java/Springboot/Annotations.md"
     }
   ],
   "omittedPaths": [],
