@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "DevSync_Kafka_Notes",
-      "path": "Kafka/DevSync_Kafka_Notes.md"
+      "basename": "Kafka P3",
+      "path": "Kafka/Kafka P3.md"
     },
     {
       "basename": "DevSync_Kafka_Notes_Continuation_FULL",
       "path": "Kafka/DevSync_Kafka_Notes_Continuation_FULL.md"
+    },
+    {
+      "basename": "DevSync_Kafka_Notes",
+      "path": "Kafka/DevSync_Kafka_Notes.md"
     },
     {
       "basename": "Kafka",
@@ -195,10 +199,6 @@
     {
       "basename": "Spring Security & JWT",
       "path": "Java/Springboot/Spring Security & JWT.md"
-    },
-    {
-      "basename": "JWT RISKS - LOGOUT",
-      "path": "Java/Springboot/JWT RISKS - LOGOUT.md"
     }
   ],
   "omittedPaths": [],

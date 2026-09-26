@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kafka/DevSync_Kafka_Notes.md",
+                "file": "Kafka/Kafka P3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DevSync_Kafka_Notes"
+              "title": "Kafka P3"
             }
           }
         ]
@@ -98,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "3a22e693f7850bba",
@@ -226,11 +227,12 @@
   },
   "active": "4425428aa38a6045",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Kafka/Kafka P3.md",
     "Kafka/DevSync_Kafka_Notes_Continuation_FULL.md",
     "Kafka/DevSync_Kafka_Notes.md",
     "Kafka/Kafka.md",
     "Kafka/Outbox Pattern - Kafka.md",
-    "Untitled.md",
     "Kafka/imgs/Kafka producers ills.png",
     "Kafka/imgs/kafka key hasking.png",
     "Kafka/imgs/durability.png",
@@ -265,7 +267,6 @@
     "Java/Core Java/File Handling.md",
     "Java/Collections/Collections.md",
     "Java/Time.md",
-    "Java/Revision Plan.md",
     "Java/Collections",
     "Docker",
     "Java/DevSync/Unconfirmed 433763.crdownload",
