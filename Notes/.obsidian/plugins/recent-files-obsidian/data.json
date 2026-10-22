@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "Data Ownership",
+      "path": "microservices/Data Ownership.md"
+    },
+    {
+      "basename": "QA",
+      "path": "microservices/QA.md"
+    },
+    {
+      "basename": "Microservices Fundamentals - 1",
+      "path": "microservices/Microservices Fundamentals - 1.md"
+    },
+    {
+      "basename": "Microservices Index",
+      "path": "microservices/Microservices Index.md"
+    },
+    {
+      "basename": "microservices_segment_2_service_boundaries",
+      "path": "microservices/microservices_segment_2_service_boundaries.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "microservices/Untitled.md"
+    },
+    {
       "basename": "Kafka P3",
       "path": "Kafka/Kafka P3.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "Spring Events",
       "path": "Java/Springboot/Spring Events.md"
-    },
-    {
-      "basename": "Observer Pattern",
-      "path": "System Design/LLD/Observer Pattern.md"
-    },
-    {
-      "basename": "Pasted image 20260619064950",
-      "path": "System Design/Images/Pasted image 20260619064950.png"
-    },
-    {
-      "basename": "Pasted image 20260618222809",
-      "path": "System Design/Images/Pasted image 20260618222809.png"
-    },
-    {
-      "basename": "Pasted image 20260615083401",
-      "path": "Images/Pasted image 20260615083401.png"
-    },
-    {
-      "basename": "Pasted image 20260615083227",
-      "path": "Images/Pasted image 20260615083227.png"
-    },
-    {
-      "basename": "Spring Security & JWT",
-      "path": "Java/Springboot/Spring Security & JWT.md"
     }
   ],
   "omittedPaths": [],

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kafka/Kafka P3.md",
+                "file": "microservices/Data Ownership.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kafka P3"
+              "title": "Data Ownership"
             }
           }
         ]
@@ -227,8 +227,15 @@
   },
   "active": "4425428aa38a6045",
   "lastOpenFiles": [
-    "Untitled.md",
+    "microservices/Data Ownership.md",
+    "microservices/QA.md",
+    "microservices/Microservices Fundamentals - 1.md",
+    "microservices/Microservices Index.md",
+    "microservices/microservices_segment_2_service_boundaries.md",
+    "microservices/Untitled.md",
     "Kafka/Kafka P3.md",
+    "microservices",
+    "Untitled.md",
     "Kafka/DevSync_Kafka_Notes_Continuation_FULL.md",
     "Kafka/DevSync_Kafka_Notes.md",
     "Kafka/Kafka.md",
@@ -259,20 +266,13 @@
     "Redis/Interview Questions.md",
     "Redis/Redis cheatsheet/redis_sorted_sets_notes.md",
     "Redis/Redis cheatsheet/redis_sets_notes.md",
-    "Redis/Redis cheatsheet/Redis_Hashes_Phase_1_Notes.md",
-    "Redis/Redis DataStructures.md",
     "Redis/Redis cheatsheet",
-    "Java/Core Java/File Handling2.md",
     "Redis",
-    "Java/Core Java/File Handling.md",
-    "Java/Collections/Collections.md",
-    "Java/Time.md",
     "Java/Collections",
     "Docker",
     "Java/DevSync/Unconfirmed 433763.crdownload",
     "Java/DevSync/Search",
     "Java/Imps",
-    "System Design/Images",
     "Untitled.canvas"
   ]
 }
