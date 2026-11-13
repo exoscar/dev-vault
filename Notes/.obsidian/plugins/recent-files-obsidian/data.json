@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Database Replication",
+      "path": "System Design/HLD/Database Replication.md"
+    },
+    {
+      "basename": "Docker",
+      "path": "Docker/Docker.md"
+    },
+    {
       "basename": "Data Ownership",
       "path": "microservices/Data Ownership.md"
     },
@@ -149,10 +157,6 @@
       "path": "Java/Springboot/Flyway.md"
     },
     {
-      "basename": "Docker",
-      "path": "Docker/Docker.md"
-    },
-    {
       "basename": "DevSync Checklist",
       "path": "Java/DevSync/DevSync Checklist.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Questions",
       "path": "Java/Imps/Questions.md"
-    },
-    {
-      "basename": "Spring Events",
-      "path": "Java/Springboot/Spring Events.md"
     }
   ],
   "omittedPaths": [],

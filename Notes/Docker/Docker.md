@@ -1,3 +1,5 @@
+Docker is an open source platform that enables developers to automate the deployment scaling and management of applications using containerization. Containers are lightweight, isolated environments that encapsulate an application along with its depenedenices, libs and runtime components
+
 ### Container
 - A way to package application with all the necessary dependencies and configuration
 - Portable artifact, easily shared and moved around
@@ -276,7 +278,7 @@ docker network inspect <network-name>
 
 Remove docker network
 ```
-docker network rum <network-name / naetowrk id>
+docker network rm <network-name / netowrk id>
 ```
 
 ### Dockerfile

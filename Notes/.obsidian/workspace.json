@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "microservices/Data Ownership.md",
+                "file": "System Design/HLD/Database Replication.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Data Ownership"
+              "title": "Database Replication"
             }
           }
         ]
@@ -98,8 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "3a22e693f7850bba",
@@ -227,6 +226,8 @@
   },
   "active": "4425428aa38a6045",
   "lastOpenFiles": [
+    "Docker/Docker.md",
+    "System Design/HLD/Database Replication.md",
     "microservices/Data Ownership.md",
     "microservices/QA.md",
     "microservices/Microservices Fundamentals - 1.md",
@@ -264,8 +265,6 @@
     "Redis/Redis cheatsheet/redis-phase-2-notes.md",
     "Redis/Redis cheatsheet/Redis Strings — Hands-on Cheat Sheet.md",
     "Redis/Interview Questions.md",
-    "Redis/Redis cheatsheet/redis_sorted_sets_notes.md",
-    "Redis/Redis cheatsheet/redis_sets_notes.md",
     "Redis/Redis cheatsheet",
     "Redis",
     "Java/Collections",
