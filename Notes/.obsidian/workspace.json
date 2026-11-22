@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "System Design/HLD/Database Replication.md",
+                "file": "Complete DSA Roadmap for Java Backend Interviews.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Database Replication"
+              "title": "Complete DSA Roadmap for Java Backend Interviews"
             }
           }
         ]
@@ -226,8 +226,8 @@
   },
   "active": "4425428aa38a6045",
   "lastOpenFiles": [
-    "Docker/Docker.md",
     "System Design/HLD/Database Replication.md",
+    "Docker/Docker.md",
     "microservices/Data Ownership.md",
     "microservices/QA.md",
     "microservices/Microservices Fundamentals - 1.md",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Complete DSA Roadmap for Java Backend Interviews",
+      "path": "Complete DSA Roadmap for Java Backend Interviews.md"
+    },
+    {
       "basename": "Database Replication",
       "path": "System Design/HLD/Database Replication.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "DB Relations",
       "path": "Java/Springboot/DB Relations.md"
-    },
-    {
-      "basename": "Questions",
-      "path": "Java/Imps/Questions.md"
     }
   ],
   "omittedPaths": [],
